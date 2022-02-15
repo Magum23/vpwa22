@@ -63,12 +63,12 @@ Akékoľvek iné vylepšenia sú vítané a potešia ma :-)
     * notifikácia obsahuje časť zo správy a odosielateľa
     * používateľ si môže nastaviť, aby mu chodili notifikácie iba pre správy, ktoré sú mu adresované
 9. používateľ si môže nastaviť stav (online, DND, offline)
-  * stav sa zobrazuje používateľom
-  * ak je nastavený DND stav, neprichádzajú notifikácie
-  * ak je nastavený offline stav, neprichádzajú používateľovi správy, po prepnutí do online/away sú kanály automaticky aktualizované 
+    * stav sa zobrazuje používateľom
+    * ak je nastavený DND stav, neprichádzajú notifikácie
+    * ak je nastavený offline stav, neprichádzajú používateľovi správy, po prepnutí do online/away sú kanály automaticky aktualizované 
 10. používateľ si môže pozrieť zoznam členov kanála (ak je tiež členom kanála) príkazom /list
 11. ak má používateľ aktívny niektorý z kanálov (nachádza sa v okne správ pre daný kanál) vidí v stavovej lište informáciu o tom, kto aktuálne píše správu (napr. Ed is typing)
-  * po kliknutí na nickName si môže pozrieť rozpísaný text v reálnom čase, predtým, ako ju odosielateľ odošle (každá zmena je viditeľná) :-)
+    * po kliknutí na nickName si môže pozrieť rozpísaný text v reálnom čase, predtým, ako ju odosielateľ odošle (každá zmena je viditeľná) :-)
 
 
 ## Dátový model
@@ -101,7 +101,6 @@ Odporúčané technológie:
 
 Použitie iných technológií, napr. iný rámec na strane backendu alebo relačný databázový systém je podmienené súhlasom vyučujúceho. Hlavnou podmienkou je, že študent musí preukázať, že s technológiou/rámcom, ktorý chce používať má praktické skúsenosti. 
 
-
 ## Dokumentácia v 2. (finálnej) fáze
 Dokumentácia musí obsahovať minimálne tieto časti:
 * zadanie
@@ -109,9 +108,5 @@ Dokumentácia musí obsahovať minimálne tieto časti:
 * diagram/diagramy architektúry aplikácie
 * návrhové rozhodnutia (pridanie externej knižnice - zdôvodenie, ...)
 * snímky obrazoviek (angl. screenshot, snapshot), aspoň 5 kľúčových obrazoviek (tie, ktoré by ste dali napr. do storu, aby ste zaujali a prezentovali sa)
-
-
-
-
 
 **Každý študent musí vedieť vysvetliť ktorúkoľvek časť (kód) riešenia svojho tímu.**

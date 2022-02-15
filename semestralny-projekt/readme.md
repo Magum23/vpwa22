@@ -42,7 +42,7 @@ Akékoľvek iné vylepšenia sú vítané a potešia ma :-)
    * pri opustení kanála, alebo trvalom vyhodení z kanála je daný kanál odobratý zo zoznamu
    * pri pozvánke do kanála je daný kanál zvýraznený a topovaný
    * v zozname môže cez používateľské rozhranie kanál vytvoriť, opustiť, a ak je správcom aj zrušiť
-   * dva typy kanálov - súkromný (private channel) a verejný kanál (private channel)
+   * dva typy kanálov - súkromný (private channel) a verejný kanál (public channel)
    * správcom kanála je používateľ, ktorý kanál vytvoril
    * ak nie je kanál aktívny (nie je pridaná nová správa) viac ako 30 dní, kanál prestáva existovať (následne je možné použiť channelName kanála pre "nový" kanál)
 3. používateľ odosiela správy a príkazy cez "príkazový riadok", ktorý je "fixným" prvkom aplikácie. používateľ môže odoslať správu v kanáli, ktorého je členom
@@ -72,7 +72,7 @@ Akékoľvek iné vylepšenia sú vítané a potešia ma :-)
 
 
 ## Dátový model
-V prvom kontrolnom termíne sa odovzdáva JPG (JPEG) obrázok logického dátového modelu (relačnej databázy) reprezentovaného UML class diagramom.
+V prvej fáze sa odovzdáva JPG (JPEG) obrázok logického dátového modelu (relačnej databázy) reprezentovaného UML class diagramom.
 V druhej (finálnej) fáze musí byť dátový model vytvorený prostreníctvom migrácií.
 
 

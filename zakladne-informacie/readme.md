@@ -29,7 +29,7 @@
 
 ### Sviatky LS 2022   
 * **15. - 18. 4. 2022** (piatok – pondelok) Veľkonočné sviatky    
-* **1**. 5. 2022** (nedeľa) Sviatok práce    
+* **1. 5. 2022** (nedeľa) Sviatok práce    
 * **8. 5. 2022** (nedeľa) Deň víťazstva nad fašizmom    
 
 

@@ -16,19 +16,19 @@ použijete cudzí materiál a neuvediete zdroj, práca môže byť považovaná 
 
 
 ## Termíny odovzdania
-* **Odovzdanie 1. fázy projektu: koniec 3. týždňa - 10.10. do 23:59 v AIS, 8 bodov,** vytvorenie skíc jednotlivých stránok pre zariadenia extra large (desktop)
-* **Odovzdanie 2. fázy projektu: koniec 7. týždňa - 7.11, do 23:59 v AIS, 18 bodov (16 + 2 body),** vytvorenie responzívnych šablón (16 bodov); návrh dátového modelu (2 body)
-* **Odovzdanie 3. fázy projektu: koniec 11. týždňa - 5.12. do 23:59 v AIS, 20 bodov** 
-  * implementácia klientskej časti eshopu so zostavením na serveri (server-side rendering) s využitím PHP rámca (odporúčaný Laravel)
-  * implementácia administrátorského panela/admin zóny so zostavením na serveri (server-side rendering) s využitím PHP rámca (odporúčaný Laravel)
-  * finálna dokumentácia
+* **Odovzdanie 1. fázy projektu: koniec 5. týždňa - 20.3. do 23:59 v AIS, 12 bodov,** vytvorenie responzívneho klikateľného prototypu používateľského rozhrania aplikácie na textovú komunikáciu vo forme Single Page Aplikácie (SPA) pre všetky prípady použitia s použitím rámca Quasar (framework), návrh dátového logického modelu v UML notácii
+* **Odovzdanie 2. fázy projektu: koniec 11. týždňa - 1.5. do 23:59 v AIS, 30 bodov** vytvorenie progresívnej webovej aplikácie (PWA) na textovú komunikáciu v štýle IRC (Slack) podľa požiadaviek v zadaní projektu, dokumentácia
+
+
+## Termíny konzultácií k projektu
+* **Konzultácie k 1. fáze projektu, na cvičení: 2. - 4. týždeň semestra**
+* **Konzultácie k 2. fáze projektu, na cvičení: 6. - 11. týždeň semestra**
 
 
 ## Termíny prezentovania
 V čase cvičení tím predvedie na svojom počítači svoje riešenie (fázy projektu), a to:
-* **Konzultácie k 1. fáze projektu, na cvičení: 4. týždeň - 11.10. a 12.10.**
-* **Prezentovanie 2. fázy projektu, na cvičení: 8. týždeň - 8. a 9.11.***
-* **Prezentovanie finálneho projektu: 12. týždeň - 6.12. a 7.12.**
+* **Prezentovanie 1. fázy projektu, na cvičení: 6. týždeň semestra - 21. a 23.3.***
+* **Prezentovanie finálneho projektu: 12. týždeň semestra - 2. a 4.5.**
 
 
 ## Aplikácia na textovú komunikáciu v štýle IRC (zjednodušený Slack)

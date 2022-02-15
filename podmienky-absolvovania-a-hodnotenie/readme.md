@@ -2,10 +2,10 @@
 
 
 ## Hodnotenie
-**Projekt:** 47 (12+5+30) bodov 
-**Priebežný test** 9 bodov
-**Záverečný test (skúška):** 44 bodov  
-**Spolu:** 100 (56 + 44) bodov  
+**Projekt:** 47 (12+5+30) bodov   
+**Priebežný test** 9 bodov    
+**Záverečný test (skúška):** 44 bodov    
+**Spolu:** 100 (56 + 44) bodov    
 
 ### Známka
 A - výborne, 92 až 100 bodov   
@@ -22,7 +22,7 @@ Počas semestra študenti vypracujú projekt demonštrujúci progresívnu webov�
 Projekt je hodnotený max. 47 bodmi a vypracováva sa priebežne počas semestra, čo je prezentované a bodované v 2 (dvoch) fázach a v jednom kontrolnom bode:
 
 * 1.fáza  - 12 bodov, odovzdanie koncom 5. týždňa (20.3. AIS 23:59), prezentovanie v 6. týždni - vytvorenie responzívneho klikateľného prototypu používateľského rozhrania aplikácie na textovú komunikáciu vo forme Single Page Aplikácie (SPA) pre všetky prípady použitia s použitím rámca Quasar (framework), návrh dátového logického modelu v UML notácii
-* 2.fáza - 30 bodov, odovzdanie koncom 11. týždňa (1.4., AIS 23:59), prezentovanie v 12. týždni - vytvorenie progresívnej webovej aplikácie (PWA) na textovú komunikáciu v štýle IRC (Slack) podľa požiadaviek v zadaní projektu, dokumentácia
+* 2.fáza - 30 bodov, odovzdanie koncom 11. týždňa (1.5., AIS 23:59), prezentovanie v 12. týždni - vytvorenie progresívnej webovej aplikácie (PWA) na textovú komunikáciu v štýle IRC (Slack) podľa požiadaviek v zadaní projektu, dokumentácia
 
 Bez odovzdania projektu v 1. fáze, ktorá je cvičiacim akceptovaná a spĺňa minimálnu úroveň kvality, nie je možné odovzdať projekt v 2. (finálnej) fáze, a teda nebude možné získať príslušné body.
 
@@ -30,6 +30,10 @@ Bez odovzdania projektu v 1. fáze, ktorá je cvičiacim akceptovaná a spĺňa 
 
 [Podrobné informácie o projekte a harmonograme jednotlivých kontrolných termínov.](../semestralny-projekt)
 
+
+## Priebežný test
+Počas semestra bude priebežný test na cvičení. Za test je možné získať maximálne 9 bodov, pričom je nutné získať aspoň 3 body.
+Predpokladaný termín: 8. týždeň semestra.
 
 ## Podmienky získania zápočtu
 * priebežné odovzdanie (v daných termínoch) a vysvetlenie všetkých častí projektu (vlastnej práce študentov) v predpísanej kvalite (podľa požiadaviek cvičiaceho)

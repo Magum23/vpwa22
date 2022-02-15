@@ -86,11 +86,8 @@ Odovzdáva sa ZIP alebo RAR archív.
 
 ## Oneskorenie odovzdania
 V kontrolnom termíne sa môže odovzdanie oneskoriť maximálne o 3 dni.
-
 Za každý deň oneskoreného odovzdania je tímu odobratých 25% bodov z pôvodného maxima (deň po termíne tím získa 3/4 bodov, dva dni po termíne 1/2, atď.) 
-
-Neskoršie odovzdanie nie je možné. Neodovzdanie niektorej časti projektu znamená nesplnenie podmienok absolvovania predmetu.
- 
+Neskoršie odovzdanie nie je možné. Neodovzdanie niektorej časti projektu znamená nesplnenie podmienok absolvovania predmetu.ß
  
 ## Kontrolná fáza progresu implementácie
 V kontrolnej fáze - v 9. týždni semestra - sa očakáva implementovaná značná časť aplikácie. Fáza je hodnotená 5 bodmi, a to binárne. Tím letmo predvedie cvičiacemu funkčnosť aplikácie s ohľadom na požadované prípady použitia. Ak aplikácia umožňuje realizovať aspoň 7 (z 11) vybraných prípadov použitia, každý člen tímu získa 5 bodov. Cvičiaci nebude v tejto fáze podrobne hodnotiť kvalitu kódu a robustnosť riešenia.

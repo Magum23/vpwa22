@@ -28,12 +28,12 @@
 * **Priebežný test za 9 bodov** na cvičení v 8. týždni semestra (4. a 6. 4.) 
 
 ### Sviatky LS 2022   
-* 15. - 18. 4. 2022 (piatok – pondelok) Veľkonočné sviatky    
-* 1. 5. 2022 (nedeľa) Sviatok práce    
-* 8. 5. 2022 (nedeľa) Deň víťazstva nad fašizmom    
+* **15. - 18. 4. 2022** (piatok – pondelok) Veľkonočné sviatky    
+* **1**. 5. 2022** (nedeľa) Sviatok práce    
+* **8. 5. 2022** (nedeľa) Deň víťazstva nad fašizmom    
 
 
 ### Náhrada výučby:    
-* 9. 5. 2022 (pondelok) výučba ako v pondelok, náhrada 18. 4. 2022    
-* 10. 5. 2022 (utorok) výučba ako v piatok, náhrada 15. 4. 2022   
-* 11. 5. 2022 (streda) výučba ako vo štvrtok, náhrada 28. 4. 2022    
+* **9. 5. 2022** (pondelok) výučba ako v pondelok, náhrada 18. 4. 2022    
+* **10. 5. 2022** (utorok) výučba ako v piatok, náhrada 15. 4. 2022   
+* **11. 5. 2022** (streda) výučba ako vo štvrtok, náhrada 28. 4. 2022    

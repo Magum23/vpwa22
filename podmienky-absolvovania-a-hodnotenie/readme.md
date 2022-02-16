@@ -35,7 +35,7 @@ Bez odovzdania projektu v 1. fáze, ktorá je cvičiacim akceptovaná a spĺňa 
 Počas semestra bude priebežný test na cvičení. Za test je možné získať maximálne 9 bodov, pričom je nutné získať aspoň 3 body.
 Predpokladaný termín: 8. týždeň semestra.
 
-## Podmienky získania zápočtu
+## Podmienky pripustenia ku skúške
 * priebežné odovzdanie (v daných termínoch) a vysvetlenie všetkých častí projektu (vlastnej práce študentov) v predpísanej kvalite (podľa požiadaviek cvičiaceho)
 * získanie **minimálne 29 bodov (zo 47 bodov)** v súčte za vypracovaný projekt
 * získanie aspoň 3 bodov (z 9 bodov) z priebežného testu

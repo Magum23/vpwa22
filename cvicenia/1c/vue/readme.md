@@ -122,11 +122,11 @@ export default {
 
 Vidíme, že náš další SFC (Single-File-Component) má logiku a šablónu (štýly zatiaľ neriešime). V logike už máme aj model komponentu, reprezentovaný JavaScript (JS) funkciou ``data()``. Táto funkcia je zároveň objektom (špecifikum jazyka JS) s atribútom ``count`` inicializovanom na hodnotu 0. 
 
-Šablóna obsahuje tlačidlo - HTML element ``<button>`` - s Vue.js direktívou ``v-on:click`` alebo skrátene iba ``@ciick``. Po kliknutí na tlačidlo sa inkrementuje model - premenná ``count``. Hodnota premennej sa vykresľuje v obsahu elementu ``<button>`` cez tzv. Mustache syntax ``{{ count }}``. Spomeňte si na prednášku, kde sme si vysvetľovali koncept reaktivity - jednosmerné, obojsmerné previazanie (tzv. One-way and Two-way Data Binding). 
+Šablóna obsahuje tlačidlo - HTML element ``<button>`` - s Vue.js direktívou ``v-on:click`` alebo skrátene iba ``@ciick``. Po kliknutí na tlačidlo sa inkrementuje model - atribút ``count``. Hodnota atribútu sa vykresľuje v obsahu elementu ``<button>`` cez tzv. Mustache syntax ``{{ count }}``. Spomeňte si na prednášku, kde sme si vysvetľovali koncept reaktivity - jednosmerné, obojsmerné previazanie (tzv. One-way and Two-way Data Binding). 
 
 
 ## Lokálne vs Globálne zaregistrovanie komponentu
-Príkazom ``import`` sme do komponentu ``App`` zahrnuli komponent ``ButtonCounter`` a cez Vue.js vlastnosť ```components: {}`` sme ho zaregistrovali. Ide o lokálne zaregitrvanie komponentu ``ButtonCounter`` v komponente ``App``, aby sme ho mohli použiť. Komponent môžeme zaregistrovať aj na globálnej úrovni (na úrovni celej aplikácie). V takom prípade bude prístupný (môžeme ho použiť v ľubovoľnom komponente) bez nutnosti jeho lokálnej registrácie. 
+Príkazom ``import`` sme do komponentu ``App`` zahrnuli komponent ``ButtonCounter`` a cez Vue.js vlastnosť ``components: {}`` sme ho zaregistrovali. Ide o lokálne zaregitrvanie komponentu ``ButtonCounter`` v komponente ``App``, aby sme ho mohli použiť. Komponent môžeme zaregistrovať aj na globálnej úrovni (na úrovni celej aplikácie). V takom prípade bude prístupný (môžeme ho použiť v ľubovoľnom komponente) bez nutnosti jeho lokálnej registrácie. 
 
 V súbore main.js vykonejme takúto zmenu:
 

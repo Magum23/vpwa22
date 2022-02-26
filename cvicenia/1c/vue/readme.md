@@ -1,8 +1,10 @@
-# Prerekvizity
+# Vytvorenie prvého Vue.js projektu - krok za krokom
+
+##  Prerekvizity
 Odporúčam vývojové prostredie (IDE) [Visual Studio Code](https://code.visualstudio.com/) s rozšírením [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar).
 Konečné rozhodnutie s ohľadom na vaše preferencie je samozrejme na vás.
 
-# Vytvorenie prvého Vue.js projektu
+## Vytvorenie prvého Vue.js projektu
 
 **1**. Ak ešte nemáte, [stiahnite a nainštalujte si Node.js)](https://nodejs.org/en/download/). ktorý zároveň obsahuje NPM (Node Package Manager. NPM je správca balíčkov (modulov/knižníc) pre JavaScript vo všeobecnosti. Node.js sme si predstavili na prednáške.
 
@@ -42,7 +44,7 @@ Pre informáciu, nasledujúciim príkazom vytvoríme produkčné zostavenie (bui
 npm run build
 ```
 
-# Vytvorenie jednoduchého počítadla kliknutí
+## Vytvorenie jednoduchého počítadla kliknutí
 
 Nastavme sa do priečinku ``src``.
 
@@ -123,7 +125,7 @@ Vidíme, že náš další SFC (Single-File-Component) má logiku a šablónu (�
 Šablóna obsahuje tlačidlo - HTML element ``<button>`` - s Vue.js direktívou ``v-on:click`` alebo skrátene iba ``@ciick``. Po kliknutí na tlačidlo sa inkrementuje model - premenná ``count``. Hodnota premennej sa vykresľuje v obsahu elementu ``<button>`` cez tzv. Mustache syntax ``{{ count }}``. Spomeňte si na prednášku, kde sme si vysvetľovali koncept reaktivity - jednosmerné, obojsmerné previazanie (tzv. One-way and Two-way Data Binding). 
 
 
-# Lokálne vs Globálne zaregistrovanie komponentu
+## Lokálne vs Globálne zaregistrovanie komponentu
 Príkazom ``import`` sme do komponentu ``App`` zahrnuli komponent ``ButtonCounter`` a cez Vue.js vlastnosť ```components: {}`` sme ho zaregistrovali. Ide o lokálne zaregitrvanie komponentu ``ButtonCounter`` v komponente ``App``, aby sme ho mohli použiť. Komponent môžeme zaregistrovať aj na globálnej úrovni (na úrovni celej aplikácie). V takom prípade bude prístupný (môžeme ho použiť v ľubovoľnom komponente) bez nutnosti jeho lokálnej registrácie. 
 
 V súbore main.js vykonejme takúto zmenu:
@@ -157,7 +159,7 @@ export default {
 Pozor, ak si globálne zaregistrujeme komponent, ale nikde ho nepoužijeme, stále bude obsiahnutý vo výslednom zostavení (build) aplikácie. Globálnu registráciu komponentov treba používať uvážlivo. Vo veľkých aplikáciách spôsobuje, že sú vzťahy menej explicitné/zjavné. Sťažuje nájdenie implementácie podriadeného komponentu z nadriadeného komponentu. V prípade veľkého množstva globálnych komponentov môže byť údržba aplikačného kódu stažená/náročná. 
 
 
-# Props - odovzdanie dát z nadriadeného podriadenému komponentu
+## Props - odovzdanie dát z nadriadeného podriadenému komponentu
 
 Upravme v komponente ``ButtonCounter`` šablónu takto:
 

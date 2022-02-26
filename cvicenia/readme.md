@@ -2,4 +2,4 @@
 
 **Úvod**
 
-1. 
+1. [Vytvorenie prvého Vue.js projektu](1c/vue/)

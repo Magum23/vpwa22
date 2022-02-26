@@ -128,7 +128,7 @@ Vidíme, že náš další SFC (Single-File-Component) má logiku a šablónu (�
 ## Lokálne vs Globálne zaregistrovanie komponentu
 Príkazom ``import`` sme do komponentu ``App`` zahrnuli komponent ``ButtonCounter`` a cez Vue.js vlastnosť ``components: {}`` sme ho zaregistrovali. Ide o lokálne zaregistrovanie komponentu ``ButtonCounter`` v komponente ``App``, aby sme ho mohli použiť. Komponent môžeme zaregistrovať aj na globálnej úrovni (na úrovni celej aplikácie). V takom prípade bude prístupný (môžeme ho použiť v ľubovoľnom komponente) bez nutnosti jeho lokálnej registrácie. 
 
-V súbore main.js vykonajme takúto zmenu:
+V súbore ``main.js`` vykonajme takúto zmenu:
 
 ```js
 import { createApp } from 'vue'

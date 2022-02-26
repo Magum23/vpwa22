@@ -223,3 +223,4 @@ export default {
 ```
 
 **Na úvod všetko :)**
+[Zdrojový kód - Prvý Vue.js projekt](zdroje/MyFirstProject.zip)

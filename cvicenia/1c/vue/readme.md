@@ -203,7 +203,7 @@ export default {
 </template>
 ```
 
-V komponente ``App`` na odovzdanie hodnoty "Klikol si na mňa" komponentu ``ButtonCounter`` použijeme jednoducho atribút ``title``:
+V komponente ``App`` na odovzdanie hodnoty "Klikol si na mňa" komponentu ``ButtonCounter`` použijeme atribút ``title``:
 
 ```js
 <script>

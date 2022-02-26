@@ -31,8 +31,7 @@
 3. [HTML5: Tabuľky - príklady na precvičenie](zdroje/wtech/3-c/tabulky#c3-tabulky-priklady)
 4. [HTML5: Formuláre - teória](zdroje/wtech/3-c/formulare)
 5. [HTML5: Formuláre - príklady na precvičenie](zdroje/wtech/3-c/formulare#c3-formulare-priklady)
-6. [PhpStorm - Live Edit](zdroje/wtech/3-c/phpstorm-liveedit)
-7. [Riešenia k príkladom](zdroje/wtech/zdroje/cvicenie3-priklady-riesenia.zip)
+6. [Riešenia k príkladom](zdroje/wtech/zdroje/cvicenie3-priklady-riesenia.zip)
 
 **CSS**
 1. [CSS: Základy, selektory, box model - príklady na precvičenie](zdroje/wtech/4-c/zaklady-selektory)

@@ -6,7 +6,7 @@ Konečné rozhodnutie s ohľadom na vaše preferencie je samozrejme na vás.
 
 ## Vytvorenie prvého Vue.js projektu
 
-**1**. Ak ešte nemáte, [stiahnite a nainštalujte si Node.js)](https://nodejs.org/en/download/). ktorý zároveň obsahuje NPM (Node Package Manager. NPM je správca balíčkov (modulov/knižníc) pre JavaScript vo všeobecnosti. Node.js sme si predstavili na prednáške.
+**1**. Ak ešte nemáte, [stiahnite a nainštalujte si Node.js](https://nodejs.org/en/download/). ktorý zároveň obsahuje NPM (Node Package Manager. NPM je správca balíčkov (modulov/knižníc) pre JavaScript vo všeobecnosti. Node.js sme si predstavili na prednáške.
 
 **2.** Použitím NPM si vytvoríme Vue.js projekt cez command-line (CLI):
 ```js

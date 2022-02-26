@@ -26,7 +26,7 @@ Všimnime si, že v priečinku sa nenachádza priečinok ``node_modules``.
 
 Príkazom ``npm install`` nainštalujeme závislosti (externé knižnice/balíčky), ktoré naša aplikácia používa. Zoznam bezprostredných balíčkov nájdeme v súbore ``package.json``. Keď sa po spustení príkazu pozrieme do novo-vytvoreného priečinka ``node_modules`` uvidíme viacero priečinkov, ktoré reprezetujú externé závislosti (knižnice/balíčky). Je ich preto viac ako v našom súbore ``package.json``, lebo každý balíček môže vyžadovať ďalšie závislosti (vo svojom súbore ``package.json``). Príkaz ``npm install`` sa postará o rekurzívne nainštalovanie závislostí. 
 
-Za povšimnutie stojí tiež súbor ``package-lock.json``. Tento súbor sa vytvorí po vykonaní príkazu ``npm install``. V ``package.json`` sú hlavné balíčky, zatiaľ čo ``package-lock.json``obsahuje už celý storm závislostí (je to podrobnejší obraz všetkých závislostí pre náš projekt).  
+Za povšimnutie stojí tiež súbor ``package-lock.json``. Tento súbor sa vytvorí po vykonaní príkazu ``npm install``. V ``package.json`` sú hlavné balíčky, zatiaľ čo ``package-lock.json``obsahuje už celý strom závislostí (je to podrobnejší obraz všetkých závislostí pre náš projekt).  
 
 Súbor ``package-lock.json`` needitujeme ručne. Zmeny sa realizujú cez príkaz ``npm`` (pridávaním/odoberaním závislostí do projektu).
 

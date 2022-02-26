@@ -180,7 +180,7 @@ export default {
 </template>
 ```
 
-Vidíme, že obsah tlačidla obsahuje atribút ``title``. Hodnotu tohto atribútu ("Klikol si na mňa") nechceme definovať (staticky) v modeli komponentu (objekt ``data()``), ale chceme aby ju odovzdal komponentu nadradený komponent, v našom prípade ``App``. Použijeme na to Vue.js vlastnosť ``props``. 
+Vidíme, že obsah tlačidla obsahuje atribút ``title``. Hodnotu tohto atribútu ("Klikol si na mňa") nechceme definovať (staticky) v modeli komponentu (objekt ``data()``), ale chceme aby ju odovzdal komponentu nadradený komponent, v našom prípade ``App``. Použijeme na to Vue.js vlastnosť ``props``, v ktorej zadefinujeme atribút ``title``.
 
 Upravme komponent ``ButtonCounter`` takto:
 

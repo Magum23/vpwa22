@@ -21,7 +21,7 @@
 ### Cvičenia k materiálom pre študentov, ktorí nemali WTECH
 
 **HTML - Úvod**
-1. [HTML5: Osnova dokumentu](zdroje/wtech/2-c) **[(SLAJDY)](2-c/zdroje/c2-osnova-dokumentu.pdf)**
+1. [HTML5: Osnova dokumentu](zdroje/wtech/2-c) **[(SLAJDY)](zdroje/wtech/2-c/zdroje/c2-osnova-dokumentu.pdf)**
 2. [Príklady na precvičenie](zdroje/wtech/2-c/#c2-priklady)
 3. [Riešenia k príkladom](zdroje/wtech/zdroje/cvicenie2-priklady-riesenia.zip)
 

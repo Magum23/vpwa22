@@ -100,7 +100,7 @@ export default {
 
 Vidíme, že súbor obsahuje triviálnu logiku komponentu (v elemente ``<script>``) a šablónu (v elemente ``<template>``). Šablóna obsahuje HTML element ``<h1>`` a komponent ``<ButtonCounter>``. Tento komponent musíme vytvoriť. 
 
-V logike komponentu je direktíva na importovanie komponentu ``ButtonCounter``. Aby sme mohli importovaný komponent ``ButtonCounter`` použiť v komponente ``App``, musíme ho zaregistrovať použitím Vue vlastnosti  ```components: {}``. Pozn., názov registrovaného komponentu je jeho alias.  
+V logike komponentu je direktíva na importovanie komponentu ``ButtonCounter``. Aby sme mohli importovaný komponent ``ButtonCounter`` použiť v komponente ``App``, musíme ho zaregistrovať použitím Vue vlastnosti  ``components: {}``. Pozn., názov registrovaného komponentu je jeho alias.  
 
 V priečinku ``src/components`` vytvorme súbor ``ButtonCounter.vue``, ktorého obsah je takýto:
 

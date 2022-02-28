@@ -27,7 +27,7 @@ export default {
 </template>
 ```
 
-Direktívu v-bind nie je potrebné explicitne písať. Môžeme používať skrátený zápis:
+Direktívu ``v-bind`` nie je potrebné explicitne písať. Môžeme používať skrátený zápis:
 ```html
 <template>
   <h1>Počítadlo kliknutí</h1>

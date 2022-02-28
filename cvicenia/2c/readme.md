@@ -35,7 +35,7 @@ Direktívu v-bind nie je potrebné explicitne písať. Môžeme používať skr�
 </template>
 ```
 
-## Jendosmerné vs obojsmerné previazanie
+## Jednosmerné vs obojsmerné previazanie
 
 Ako sme si spomínali na prednáške, v reaktívnych rámcoch sú spravidla modely (JavaScript objekty, premenné) napojené na DOM (Document Object Model) jednosmerným previazaním (angl. one-way binding), alebo obojsmerným previazaním (angl. two-way binding). Zjednodušene povedané, pri jednosmernom previazaní je JavaScript premenná napojená na DOM. Pri obojsmernom previazaní sú dáta napojené z DOMu späť na JavaScript premennú.
 

@@ -210,7 +210,6 @@ V komponente ``App`` na odovzdanie hodnoty "Klikol si na mňa" komponentu ``Butt
 export default {
   data() {
     return {
-      count: 0
     }
   }
 }

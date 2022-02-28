@@ -1,6 +1,6 @@
 ## Dynamické vs statické props
 
- Na predošlom cvičení sme si ukázali odovzdanie dát z nadriadeného ``App`` podriadenému komponentu ``ButtonCounter``. Zadefinovali sme atribút  ``title`` v špeciálnej Vue.js vlastnosti  ``props``. V nadriadenom komponente sme použili ako hodnotu atribútu reťazec (string) "Klikol si na mňa":
+ Na predošlom cvičení sme si ukázali odovzdanie dát z nadriadeného komponentu ``App`` podriadenému komponentu ``ButtonCounter``. Zadefinovali sme atribút  ``title`` v špeciálnej Vue.js vlastnosti  ``props``. V nadriadenom komponente sme použili ako hodnotu atribútu reťazec (string) "Klikol si na mňa":
 
 ```html
    <ButtonCounter title="Klikol si na mňa"></ButtonCounter>

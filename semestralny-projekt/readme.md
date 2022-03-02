@@ -54,7 +54,7 @@ Akékoľvek iné vylepšenia sú vítané a potešia ma :-)
     * vo verejnom kanáli môže člen "vyhodiť" iného člena príkazom /kick nickName. ak tak spravia aspoň 3 členovia, používateľ má "trvalý" ban pre daný kanál. správca môže používateľa vyhodiť "natrvalo" kedykoľvek príkazom /kick nickName, alebo naopak "obnovit" používateľovi prístup do kanála cez príkaz /invite
     * nickName ako aj channelName sú unikátne
     * správca môže kanál zatvoriť/zrušiť príkazom /quit 
-5. používateľ môže zrušiť svoje členstvo v kanáli príkazom /cancel
+5. používateľ môže zrušiť svoje členstvo v kanáli príkazom /cancel, ak tak spraví správca kanála, kanál zaniká
 6. správu v kanáli je možné adresovať konkrétnemu používateľovi cez príkaz @nickname
     * správa je zvýraznená danému používateľovi v zozname správ
 7. používateľ si môže pozrieť kompletnú históriu správ

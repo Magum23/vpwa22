@@ -3,7 +3,7 @@
 ## VPWA
 
 1. [Úvod](zdroje/1p-uvod.pdf)
-
+2. [Vue.js: reaktivita, komponenty, životný cyklus komponentu, jednosmerné/obojsmerné previazanie, metódy, watch/conputed, props, slot, udalosti, podmienené vykresľvanie, zoznamy, state management](zdroje/2p-vuejs.pdf)
 
 ### Materiály pre študentov, ktorí nemali WTECH
 

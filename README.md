@@ -13,3 +13,4 @@ aktuálnych štandardov, princípov a technológií s tým súvisiacich. Po abso
 
 
 ## Oznamy
+1. Všetci študenti, ktorí nemali predmet Základy webových technologií nemusia realizovať v projekte prípady použitia číslo: 6, 8 a 11. Bodové hodnotenie zostáva zachované. 

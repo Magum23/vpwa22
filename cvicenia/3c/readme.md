@@ -82,9 +82,9 @@ Direktívu ``v-for`` používame na vytváranie zoznamov. Výraz má špeciálnu
 </ul>
 ```
 
-Direktíva ``v-for`` používa predvolene stratégiu **in-place patch**. V prípade, ak dôjde k preusporiadaniu pola (``persons``), Vue namiesto presúvania celých elementov (``li``) v DOMe robí lacnejšiu operáciu, a to "pláta" obsah elementov, ktorých sa zmena týka. Toto však so sebou môže priniesť neželané správanie. [**Ilustrujme si to na tomto príklade**](https://codepen.io/kurice/pen/ZEamyKw).
+Direktíva ``v-for`` používa predvolene stratégiu **in-place patch**. V prípade, ak dôjde k preusporiadaniu pola (``persons``), Vue namiesto presúvania celých elementov (``li``) v DOMe robí lacnejšiu operáciu, a to "pláta" obsah elementov, ktorých sa zmena týka. Toto však so sebou môže priniesť neželané správanie. 
 
-Vyplňme vstupné polia tak, aby meno vľavo zodpovedalo menu vo vstupnom poli. 
+[**Ilustrujme si to na tomto príklade**](https://codepen.io/kurice/pen/ZEamyKw). Vyplňme vstupné polia tak, aby meno vľavo zodpovedalo menu vo vstupnom poli. 
 ![Ukážka v-for](zdroje/vfor1.png "Ukážka v-for")
 
 Kliknime na tlačidlo **Shuffle**. Vidíme, že hoci sa poradie elementov v poli ``persons`` mení, poradie vstupných polí zostáva stále rovnaké. Napriek tomu, že vstupné pole je súčasťouou HTML elementu ``li``, na ktorý je aplikovaná direktíva ``v-for``:

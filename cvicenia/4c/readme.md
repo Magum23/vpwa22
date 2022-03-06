@@ -226,7 +226,7 @@ export default defineComponent({
   },
 });
 ```
-Upravme udalosť ``@click`` tlačidla ``q-btn`` v hlavičke lyoutu:
+Upravme udalosť ``@click`` tlačidla ``q-btn`` v hlavičke layoutu:
 ```js
 ...
 @click="drawerState = !drawerState"

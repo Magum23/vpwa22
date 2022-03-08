@@ -198,33 +198,31 @@ Otvorme súbor ``src/layouts/MainLayout.vue`` a zmeňme ho takto:
 
 ```js
 ...
-import { defineComponent } from "vue";
-import { computed } from 'vue'
-import { useStore } from 'vuex'
+import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: "MainLayout",
+  name: 'MainLayout',
 
   components: {
-    EssentialLink,
+    EssentialLink
   },
 
-  setup() {
-    const $store = useStore()
-
-    const drawerState = computed({
-      get: () => $store.state.showcase.drawerState,
-      set: val => {
-        $store.commit('showcase/updateDrawerState', val)
-      }
-    })
-
+  data () {
     return {
-      essentialLinks: linksList,
-      drawerState
-    };
+      essentialLinks: linksList
+    }
   },
-});
+  computed: {
+    drawerState: {
+      get () {
+        return this.$store.state.showcase.drawerState
+      },
+      set (val) {
+        this.$store.commit('showcase/updateDrawerState', val)
+      }
+    }
+  }
+})
 ```
 Upravme udalosť ``@click`` tlačidla ``q-btn`` v hlavičke layoutu:
 ```js

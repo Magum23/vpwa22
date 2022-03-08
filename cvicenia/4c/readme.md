@@ -267,3 +267,8 @@ Akciu zavoláme cez store funkciu ``dispatch`` takto:
   $store.dispatch('showcase/updateDrawerStateAction', val)
   ...
 ```
+
+## Domáca úloha
+Nainštalujte si do webové prehliadača rozšírenie [Vue.js devtools](https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd).
+Oboznámte sa s novým rozšírením a funkciami, ktoré poskytuje. Rozšírenie nám zjednodušuje vývoj (debugovanie) Vue.js aplikácií. Po prejdení tohto tutoriálu si v rozšírení pozrite store module (showcase) a ako sa mení jeho state. Zároveň si všimnite, že rozšírenie prináša pohľad na aplikáciu na úrovni komponentov (nie DOMu ako takého) a ku každému komponentu máme k dispozícii podrobné informácie.
+

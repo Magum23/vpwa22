@@ -21,19 +21,19 @@ Počas semestra študenti vypracujú projekt demonštrujúci progresívnu webov�
 
 Projekt je hodnotený max. 47 bodmi a vypracováva sa priebežne počas semestra, čo je prezentované a bodované v 2 (dvoch) fázach a v jednom kontrolnom bode:
 
-* 1.fáza  - 12 bodov, odovzdanie koncom 5. týždňa (20.3. AIS 23:59), prezentovanie v 6. týždni - vytvorenie responzívneho klikateľného prototypu používateľského rozhrania aplikácie na textovú komunikáciu vo forme Single Page Aplikácie (SPA) pre všetky prípady použitia s použitím rámca Quasar (framework), návrh dátového logického modelu v UML notácii
-* 2.fáza - 30 bodov, odovzdanie koncom 11. týždňa (1.5., AIS 23:59), prezentovanie v 12. týždni - vytvorenie progresívnej webovej aplikácie (PWA) na textovú komunikáciu v štýle IRC (Slack) podľa požiadaviek v zadaní projektu, dokumentácia
+* 1.fáza  - 12 bodov, odovzdanie koncom 6. týždňa (27.3. AIS 23:59), prezentovanie v 7. týždni - vytvorenie responzívneho klikateľného prototypu používateľského rozhrania aplikácie na textovú komunikáciu vo forme Single Page Aplikácie (SPA) pre všetky prípady použitia s použitím rámca Quasar (framework), návrh dátového logického modelu v UML notácii
+* 2.fáza - 30 bodov, odovzdanie koncom 12. týždňa (8.5., AIS 23:59), prezentovanie v 13. týždni - vytvorenie progresívnej webovej aplikácie (PWA) na textovú komunikáciu v štýle IRC (Slack) podľa požiadaviek v zadaní projektu, dokumentácia
 
 Bez odovzdania projektu v 1. fáze, ktorá je cvičiacim akceptovaná a spĺňa minimálnu úroveň kvality, nie je možné odovzdať projekt v 2. (finálnej) fáze, a teda nebude možné získať príslušné body.
 
-**V 9. týždni je naplánovaná kontrolná fáza napredovania.** Tím by už mal mať implementovanú značnú časť aplikácie. Fáza je hodnotená 5 bodmi, a to binárne. Tím letmo predvedie cvičiacemu funkčnosť aplikácie s ohľadom na požadované prípady použitia. Ak aplikácia umožňuje realizovať aspoň 7 (z 11) vybraných prípadov použitia, každý člen tímu získa 5 bodov. Cvičiaci nebude v tejto fáze podrobne hodnotiť kvalitu kódu a robustnosť riešenia. **Riešenie sa v tejto fáze neodovzdáva**.
+**V 10. týždni je naplánovaná kontrolná fáza napredovania.** Tím by už mal mať implementovanú značnú časť aplikácie. Fáza je hodnotená 5 bodmi, a to binárne. Tím letmo predvedie cvičiacemu funkčnosť aplikácie s ohľadom na požadované prípady použitia. Ak aplikácia umožňuje realizovať aspoň 7 (z 11) vybraných prípadov použitia, každý člen tímu získa 5 bodov. Cvičiaci nebude v tejto fáze podrobne hodnotiť kvalitu kódu a robustnosť riešenia. **Riešenie sa v tejto fáze neodovzdáva**.
 
 [Podrobné informácie o projekte a harmonograme jednotlivých kontrolných termínov.](../semestralny-projekt)
 
 
 ## Priebežný test
 Počas semestra bude priebežný test na cvičení. Za test je možné získať maximálne 9 bodov, pričom je nutné získať aspoň 3 body.
-Predpokladaný termín: 8. týždeň semestra.
+Predpokladaný termín: 9. týždeň semestra.
 
 ## Podmienky pripustenia ku skúške
 * priebežné odovzdanie (v daných termínoch) a vysvetlenie všetkých častí projektu (vlastnej práce študentov) v predpísanej kvalite (podľa požiadaviek cvičiaceho)

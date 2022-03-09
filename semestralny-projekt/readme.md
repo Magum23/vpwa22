@@ -28,7 +28,7 @@ použijete cudzí materiál a neuvediete zdroj, práca môže byť považovaná 
 ## Termíny prezentovania
 V čase cvičení tím predvedie na svojom počítači svoje riešenie (fázy projektu), a to:
 * **Prezentovanie 1. fázy projektu, na cvičení: 7. týždeň semestra - 28. a 30.3.**
-* **Prezentovanie finálneho projektu: 13. týždeň semestra - 9. a 11.5. (prip. dohodneme termín individuálne pre tím) **
+* **Prezentovanie finálneho projektu: 13. týždeň semestra - 9. a 11.5.** (prip. dohodneme termín individuálne pre tím)
 
 
 ## Aplikácia na textovú komunikáciu v štýle IRC (zjednodušený Slack)

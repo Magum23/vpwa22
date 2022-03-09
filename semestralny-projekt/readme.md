@@ -16,19 +16,19 @@ použijete cudzí materiál a neuvediete zdroj, práca môže byť považovaná 
 
 
 ## Termíny odovzdania
-* **Odovzdanie 1. fázy projektu: koniec 5. týždňa - 20.3. do 23:59 v AIS, 12 bodov,** vytvorenie responzívneho klikateľného prototypu používateľského rozhrania aplikácie na textovú komunikáciu vo forme Single Page Aplikácie (SPA) pre všetky prípady použitia s použitím rámca Quasar (framework), návrh dátového logického modelu v UML notácii
-* **Odovzdanie 2. fázy projektu: koniec 11. týždňa - 1.5. do 23:59 v AIS, 30 bodov** vytvorenie progresívnej webovej aplikácie (PWA) na textovú komunikáciu v štýle IRC (Slack) podľa požiadaviek v zadaní projektu, dokumentácia
+* **Odovzdanie 1. fázy projektu: koniec 6. týždňa - 27.3. do 23:59 v AIS, 12 bodov,** vytvorenie responzívneho klikateľného prototypu používateľského rozhrania aplikácie na textovú komunikáciu vo forme Single Page Aplikácie (SPA) pre všetky prípady použitia s použitím rámca Quasar (framework), návrh dátového logického modelu v UML notácii
+* **Odovzdanie 2. fázy projektu: koniec 12. týždňa - 8.5. do 23:59 v AIS, 30 bodov** vytvorenie progresívnej webovej aplikácie (PWA) na textovú komunikáciu v štýle IRC (Slack) podľa požiadaviek v zadaní projektu, dokumentácia
 
 
 ## Termíny konzultácií k projektu
-* **Konzultácie k 1. fáze projektu, na cvičení: 2. - 4. týždeň semestra**
-* **Konzultácie k 2. fáze projektu, na cvičení: 6. - 11. týždeň semestra**
+* **Konzultácie k 1. fáze projektu, na cvičení: 2. - 5. týždeň semestra**
+* **Konzultácie k 2. fáze projektu, na cvičení: 6. - 12. týždeň semestra**
 
 
 ## Termíny prezentovania
 V čase cvičení tím predvedie na svojom počítači svoje riešenie (fázy projektu), a to:
-* **Prezentovanie 1. fázy projektu, na cvičení: 6. týždeň semestra - 21. a 23.3.***
-* **Prezentovanie finálneho projektu: 12. týždeň semestra - 2. a 4.5.**
+* **Prezentovanie 1. fázy projektu, na cvičení: 7. týždeň semestra - 28. a 30.3.***
+* **Prezentovanie finálneho projektu: 13. týždeň semestra - 9. a 11.5. (prip. dohodneme termín individuálne pre tím) **
 
 
 ## Aplikácia na textovú komunikáciu v štýle IRC (zjednodušený Slack)
@@ -91,7 +91,7 @@ Za každý deň oneskoreného odovzdania je tímu odobratých 25% bodov z pôvod
 Neskoršie odovzdanie nie je možné. Neodovzdanie niektorej časti projektu znamená nesplnenie podmienok absolvovania predmetu.ß
  
 ## Kontrolná fáza progresu implementácie
-V kontrolnej fáze - v 9. týždni semestra - sa očakáva implementovaná značná časť aplikácie. Fáza je hodnotená 5 bodmi, a to binárne. Tím letmo predvedie cvičiacemu funkčnosť aplikácie s ohľadom na požadované prípady použitia. Ak aplikácia umožňuje realizovať aspoň 7 (z 11) vybraných prípadov použitia, každý člen tímu získa 5 bodov. Cvičiaci nebude v tejto fáze podrobne hodnotiť kvalitu kódu a robustnosť riešenia.
+V kontrolnej fáze - v 10. týždni semestra - sa očakáva implementovaná značná časť aplikácie. Fáza je hodnotená 5 bodmi, a to binárne. Tím letmo predvedie cvičiacemu funkčnosť aplikácie s ohľadom na požadované prípady použitia. Ak aplikácia umožňuje realizovať aspoň 7 (z 11) vybraných prípadov použitia, každý člen tímu získa 5 bodov. Cvičiaci nebude v tejto fáze podrobne hodnotiť kvalitu kódu a robustnosť riešenia.
 
 
 ## Implementačné prostredie

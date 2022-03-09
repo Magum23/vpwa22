@@ -18,14 +18,14 @@
 
 ## Harmonogram 
 
-* **Konzultácie k 1. fáze projektu, na cvičení: 2. - 4. týždeň semestra**
-* **Odovzdanie 1. fázy projektu: koniec 5. týždňa semestra - 20.3. do 23:59 v AIS, 12 bodov** vytvorenie responzívneho klikateľného prototypu používateľského rozhrania aplikácie na textovú komunikáciu vo forme Single Page Aplikácie (SPA) pre všetky prípady použitia s použitím rámca Quasar (framework), návrh dátového logického modelu v UML notácii
-* **Prezentovanie 1. fázy projektu, na cvičení: 6. týždeň semestra - 21. a 23. 3.**
-* **Konzultácie k 2. fáze projektu, na cvičení: 6. - 11. týždeň semestra**
-* **Odovzdanie 2. fázy projektu: koniec 11. týždňa semestra - 1.5., do 23:59 v AIS, 30 bodov,** vytvorenie progresívnej webovej aplikácie (PWA) na textovú komunikáciu v štýle IRC (Slack) podľa požiadaviek v zadaní projektu, dokumentácia∂∂
-* **Prezentovanie 2. (finálnej) fázy projektu, na cvičení: 12. týždeň semestra - 2. a 4. 5.**
-* **Kontrolný bod: 9. týždeň semestra, na cvičení - 11. 4. a 13. 4, binárne hodnotenie 0/5 bodov** implementácia aplikácie so všetkými funkciami podľa požiadaviek v stave na predvedenie
-* **Priebežný test za 9 bodov** na cvičení v 8. týždni semestra (4. a 6. 4.) 
+* **Konzultácie k 1. fáze projektu, na cvičení: 2. - 5. týždeň semestra**
+* **Odovzdanie 1. fázy projektu: koniec 6. týždňa semestra - 27.3. do 23:59 v AIS, 12 bodov** vytvorenie responzívneho klikateľného prototypu používateľského rozhrania aplikácie na textovú komunikáciu vo forme Single Page Aplikácie (SPA) pre všetky prípady použitia s použitím rámca Quasar (framework), návrh dátového logického modelu v UML notácii
+* **Prezentovanie 1. fázy projektu, na cvičení: 7. týždeň semestra - 28. a 30. 3.**
+* **Konzultácie k 2. fáze projektu, na cvičení: 7. - 12. týždeň semestra**
+* **Odovzdanie 2. fázy projektu: koniec 12. týždňa semestra - 8.5., do 23:59 v AIS, 30 bodov,** vytvorenie progresívnej webovej aplikácie (PWA) na textovú komunikáciu v štýle IRC (Slack) podľa požiadaviek v zadaní projektu, dokumentácia∂∂
+* **Prezentovanie 2. (finálnej) fázy projektu, na cvičení: 13. týždeň semestra - 9. a 11. 5.** (príp. dohodneme individuálny termín pre tím)
+* **Kontrolný bod: 10. týždeň semestra, na cvičení - 18. 4. a 20. 4, binárne hodnotenie 0/5 bodov** implementácia aplikácie so všetkými funkciami podľa požiadaviek v stave na predvedenie
+* **Priebežný test za 9 bodov** na cvičení v 9. týždni semestra (11. a 13. 4.) 
 
 ### Sviatky LS 2022   
 * **15. - 18. 4. 2022** (piatok – pondelok) Veľkonočné sviatky    

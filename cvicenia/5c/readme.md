@@ -166,7 +166,7 @@ Upravme šablónu komponentu ``src/pages/Index.vue`` takto:
 </template>
 ```
 
-a skript takto (zatiaľ ide o [príklad z prednášky](/prednasky/zdroje/3p-ts-01-intro.pdf)):
+a skript takto:
 
 ```js
 <script lang="ts">
@@ -195,7 +195,7 @@ export default defineComponent({
 </script>
 ```
 
-Povedzme, že chceme validovať vstupné pole ``inputText`` a to tak, že bude povinné (``required``), minimálna dĺžka reťazca (``minLength``) budú 2 znaky a maximálna dĺžka (``maxLength``) 8 znakov. Ak chceme použiť vuelidate v komponete (``Index.vue``), potrebujeme pridať ``import useVuelidate`` v skripte komponentu: 
+(Zatiaľ išlo o [príklad z prednášky](/prednasky/zdroje/3p-ts-01-intro.pdf)). Povedzme, že chceme validovať vstupné pole ``inputText`` a to tak, že bude povinné (``required``), minimálna dĺžka reťazca (``minLength``) budú 2 znaky a maximálna dĺžka (``maxLength``) 8 znakov. Ak chceme použiť **Vuelidate knižnicu** v komponete (``Index.vue``), potrebujeme pridať ``import useVuelidate`` v skripte komponentu (``Index.vue``): 
 
 ```js
 <script lang="ts">
@@ -264,13 +264,15 @@ Zadefinujme validáciu (pravidlá) vstupného poľa ``inputText`` pridaním funk
     }
   },
   ```
-V šablóne pridajme do <q-form> udalosť ``@submit`` (``v-on:submit``) s modifikátorom ``stop``. Hodnotou bude volanie funkcie ``onSubmit`` (Pozn., o modifikátoroch sme si hovorili na prednáške o Vue.js. Modifikátor ``stop`` zastaví propagation/prešírenie udalosti. [Spomeňte si na ``bubbling`` vs ``capturing``.](https://javascript.info/bubbling-and-capturing)).
+V šablóne pridajme do ``<q-form>`` udalosť ``@submit`` (``v-on:submit``) s modifikátorom ``stop``. Hodnotou bude volanie funkcie ``onSubmit``:
 
 ```html
 <q-form @submit.stop="onSubmit">
 ```
-
-Do <q-field> pridajme prop ``error``:
+(pozn., o modifikátoroch sme si hovorili na prednáške o Vue.js. Modifikátor ``stop`` zastaví propagation/prešírenie udalosti. [Spomeňte si na ``bubbling`` vs ``capturing``.](https://javascript.info/bubbling-and-capturing))
+  
+  
+Do ``<q-field>`` pridajme prop ``error``:
 
 ```html
 <q-field bottom-slots dense :error="v$.inputText.$error">

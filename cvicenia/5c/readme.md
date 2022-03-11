@@ -286,7 +286,7 @@ Do ``<q-field>`` pridajme prop ``error``:
 ...
 ```
 
-Tým, že sme zadefinovali validáciu na vstupnom poli ``inputText`` dochádza reaktívne k jeho revalidácii v súľade s definovanými validačnými pravidlami (použili sme 3). Ak hodnota vo vstupnom poli nevyhovuje niektorému z validačných pravidiel, je nastavená premenná ``v$.inputText.$error`` na hodnotu ``true`` a ``q-field`` komponent zobrazí ikonu s výkričníkom (pozrite dokumentáciu Quasaru, [Vue Components / Form Components / Field (wrapper) a prop error](https://quasar.dev/vue-components/field)).
+Tým, že sme zadefinovali validáciu na vstupnom poli ``inputText`` dochádza reaktívne k revalidácii hodnoty poľa v súľade s definovanými validačnými pravidlami (použili sme 3) pri každej jednej zmene hodnoty poľa, a teda každom zadanom znaku od používateľa. Ak hodnota vo vstupnom poli nevyhovuje niektorému z validačných pravidiel, je nastavená premenná ``v$.inputText.$error`` na hodnotu ``true`` a ``q-field`` komponent zobrazí ikonu s výkričníkom (pozrite dokumentáciu Quasaru, [Vue Components / Form Components / Field (wrapper) a prop error](https://quasar.dev/vue-components/field)).
 
 Keď používateľ klikne na tlačidlo "**Submit**" odošle sa formulár a zavolá sa funkcia ``onSubmit``.
 Vo funkcii ``onSubmit`` deklarujeme koštantu ``isFormCorrect``, ktorá nadobudne hodnotu ``false``, ak sa vyskytne validačná chyba. 

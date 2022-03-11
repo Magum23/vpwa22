@@ -13,13 +13,13 @@ Vytvorme nový Vuex store s názvom ``showcase`` príkazom:
  quasar new store -f ts showcase   
 ```
 
-V prečinku ``src/store`` sa vytvoril priečinok ``showcase`` so store modulom. Ak používame v projekte ESlint s presetom "standard", spustením nasledujúceho CLI príkazu fixneme problém s podkočiarkami v novo-vytvorených súboroch store modulu:
+V prečinku ``src/store`` sa vytvoril priečinok ``showcase`` so store modulom. Ak používame v projekte ESlint s presetom "standard", spustením nasledujúceho CLI príkazu fixneme problém s bodkočiarkami v novo-vytvorených súboroch store modulu:
 
 ```js
 npm run lint -- --fix
 ```
 
-Upravme súbor ``showcase/state.ts`` takto:
+Upravme ``state`` store modulu (súbor ``showcase/state.ts``) takto:
 
 ```js
 export interface ExampleStateInterface {
@@ -35,7 +35,7 @@ function state (): ExampleStateInterface {
 export default state
 ```
 
-Pridali sme atribút ``drawerState`` a zadefinovali mu typ. Pridajme mutáciu ``updateDrawerState`` state atribútu ``drawerState``  v súbore ``showcase/mutations.ts``:
+Pridali sme atribút ``drawerState`` a zadefinovali mu typ (``ExampleStateInterface``). Pridajme mutáciu ``updateDrawerState`` pre state atribút ``drawerState``  v súbore ``showcase/mutations.ts``:
 
 ```js
 import { MutationTree } from 'vuex'
@@ -50,7 +50,7 @@ const mutation: MutationTree<ExampleStateInterface> = {
 export default mutation
 ```
 
-Ďalej potrebujeme "zaregistrovať" náš nový store modul ``showcase``. V hlavnom súbore aplikačného storu ``store/index.ts`` importujme store module ``showcase`` a rozhranie ``ExampleStateInterface``, ktoré sme zadefinovali v jeho ``state`` (ak ste tento súbor vo svojom projekte ešte neupravovali, tak pridajte nasledujúce riadky kódu na riadku 9):
+Ďalej potrebujeme "zaregistrovať" náš nový store modul ``showcase``. V hlavnom súbore aplikačného storu ``/src/store/index.ts`` importujme store module ``showcase`` a rozhranie ``ExampleStateInterface``, ktoré sme zadefinovali v jeho ``state`` (na začiatku súboru, zvyčajne riadok 9):
 
 ```js
 // ...
@@ -125,6 +125,8 @@ a ``v-model`` komponentu ``q-drawer``:
 ```html
  <q-drawer v-model="drawerState" show-if-above bordered>
 ```
+
+Hotovo, store nám funguje v Quasare s TypeScriptom.
 
 # Quasar: Validácia vstupných polí
 
@@ -271,7 +273,7 @@ V šablóne pridajme do ``<q-form>`` udalosť ``@submit`` (``v-on:submit``) s mo
 ```
 (pozn., o modifikátoroch sme si hovorili na prednáške o Vue.js. Modifikátor ``stop`` zastaví propagation/prešírenie udalosti. [Spomeňte si na ``bubbling`` vs ``capturing``.](https://javascript.info/bubbling-and-capturing))
   
-  
+
 Do ``<q-field>`` pridajme prop ``error``:
 
 ```html
@@ -284,7 +286,7 @@ Do ``<q-field>`` pridajme prop ``error``:
 ...
 ```
 
-Tým, že sme zadefinovali validáciu na vstupnom poli ``inputText`` dochádza reaktívne k jeho validácii v súľade s definovanými validačnými pravidlami (použili sme 3). Ak hodnota vo vstupnom poli nevyhovuje niektorému z validačných pravidiel, je nastavená premenná ``v$.inputText.$error`` na hodnotu ``true`` a ``q-field`` komponent zobrazí ikonu s výkričníkom (pozrite dokumentáciu Quasaru, Vue Components / Form Components / Field (wrapper) a prop error).
+Tým, že sme zadefinovali validáciu na vstupnom poli ``inputText`` dochádza reaktívne k jeho revalidácii v súľade s definovanými validačnými pravidlami (použili sme 3). Ak hodnota vo vstupnom poli nevyhovuje niektorému z validačných pravidiel, je nastavená premenná ``v$.inputText.$error`` na hodnotu ``true`` a ``q-field`` komponent zobrazí ikonu s výkričníkom (pozrite dokumentáciu Quasaru, [Vue Components / Form Components / Field (wrapper) a prop error](https://quasar.dev/vue-components/field)).
 
 Keď používateľ klikne na tlačidlo "**Submit**" odošle sa formulár a zavolá sa funkcia ``onSubmit``.
 Vo funkcii ``onSubmit`` deklarujeme koštantu ``isFormCorrect``, ktorá nadobudne hodnotu ``false``, ak sa vyskytne validačná chyba. 

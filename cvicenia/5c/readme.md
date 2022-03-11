@@ -128,7 +128,7 @@ a ``v-model`` komponentu ``q-drawer``:
 
 # Quasar: Validácia vstupných polí
 
-Na validáciu vstupných polí (formulárové polia) je možné použiť knižnicu [Vuelidate](https://vuelidate-next.netlify.app/) (knižnica, ktorú odporúčajú aj tvorcovia Quasaru v dokumentácii). Ukážme si, ako danú knižnicu použiť. V projekte Quasar s Typescriptom môžu maž začiatočníci problémy s jej použitím. 
+Na validáciu vstupných polí (formulárové polia) je možné použiť knižnicu [Vuelidate](https://vuelidate-next.netlify.app/) (knižnica, ktorú odporúčajú aj tvorcovia Quasaru v dokumentácii). V projekte Quasar s Typescriptom môžu maž začiatočníci problémy s jej použitím. Ukážme si, ako danú knižnicu použiť.
 
 Vychádzajme z [Quasar projektu, ktorý je výsledkom predošlej časti](zdroje/c5-quasar-ts-store.zip).
 
@@ -138,7 +138,7 @@ Nainštalujme si najskôr príslušné balíčky do Quasar projektu:
 npm install @vuelidate/core @vuelidate/validators
 ```
 
-Upravme nasjkôr šablónu komponentu src/pages/Index.vue takto:
+Upravme šablónu komponentu ``src/pages/Index.vue`` takto:
 
 ```html
 <template>
@@ -164,7 +164,7 @@ Upravme nasjkôr šablónu komponentu src/pages/Index.vue takto:
     </q-form>
   </q-page>
 </template>
-```html
+```
 
 a skript takto (zatiaľ ide o [príklad z prednášky](/prednasky/zdroje/3p-ts-01-intro.pdf)):
 

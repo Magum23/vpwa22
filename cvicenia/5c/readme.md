@@ -124,8 +124,7 @@ Upravme udalosť ``@click`` tlačidla ``q-btn`` v hlavičke ``q-header`` layoutu
 a ``v-model`` komponentu ``q-drawer``:
 ```html
  <q-drawer v-model="drawerState" show-if-above bordered>
- ...
-
+```
 
 # Quasar: Validácia vstupných polí
 

@@ -213,7 +213,7 @@ import {
 
 Vuelidate ponúka rôzne preddefinované "built-in" validačné pravidlá. Ich úplný zoznam môžeme [nájsť v dokumentácii knižnice](https://vuelidate-next.netlify.app/validators.html). V komponente importujeme tie "built-in" validačné pravidlá, ktoré použijeme, a to ``minLength``, ``maxLength`` a ``required`` (každé validčné pravidlo, ktoré použijeme musíme importovať). 
 
-Vytvorme inštanciu validátora pridaním vlastnosti ``setup`` do definície lomponentu ``defineComponent``:
+Vytvorme inštanciu validátora pridaním vlastnosti ``setup`` do definície komponentu ``defineComponent``:
 
 ```js
 // ...

@@ -4,7 +4,6 @@ Vytvorme si nový Quasar projekt, pričom v sprievodcovi povoľme balíčky Vuex
 
 ```js
  quasar create [quasar-project-name]
- npm install
 ```
 
 Vytvorme nový Vuex store s názvom ``showcase`` príkazom:

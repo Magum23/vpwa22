@@ -34,7 +34,7 @@ function state (): ExampleStateInterface {
 export default state
 ```
 
-Pridali sme atribút ``drawerState`` a zadefinovali mu typ (``ExampleStateInterface``). Pridajme mutáciu ``updateDrawerState`` pre state atribút ``drawerState``  v súbore ``showcase/mutations.ts``:
+Pridali sme do ``state`` atribút ``drawerState`` typu boolean a zadefinovali rozhranie (``ExampleStateInterface``), ktoré ``state`` implementuje. Pridajme mutáciu ``updateDrawerState`` pre state atribút ``drawerState``  v súbore ``showcase/mutations.ts``:
 
 ```js
 import { MutationTree } from 'vuex'

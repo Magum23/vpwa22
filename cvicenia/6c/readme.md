@@ -94,3 +94,5 @@ export default {
 ```
 
 Hotovo. Po prepnutí jazyka sa zmení reťazec "Hello" na "Ahoj" a opačne. Možnosti použitia knižnice vue-i18n sú rôzne. Niekto napr. preferuje definovať prekladové kľúče a ich hodnoty pre podporované jazyky [priamo v komponentoch](https://kazupon.github.io/vue-i18n/guide/component.html#component-based-localization). Knižnica tiež poskytuje podporu pre prácu s množným číslom ([pluralization](https://kazupon.github.io/vue-i18n/guide/pluralization.html#pluralization)) a ďalšie vychytávky. Odporúčam spraviť si širší prehľad možností z dokumentácie.
+
+[Riešenie na stiahnutie.](zdroje/c6-quasar-vuei18n.zip)

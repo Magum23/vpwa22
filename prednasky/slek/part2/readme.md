@@ -895,7 +895,7 @@ export default class AuthController {
 ``AuthController`` deklaruje metódy na registráciu používateľa, prihlásenie, odhlásenie, a informácie o aktuálne prihlásenom používateľovi.
 V metóde ``register`` validujeme vstupné polia z registračného formulára, vytvárame inštanciu modelu používateľa (z dát z requestu) a prepájame tohto používateľa s pred-vytvoreným kanálom "general" (cez seeder). 
 
-V metóde ``login`` sa overuje používateľ (či je používateľ identifikovaný emailom v DB a či sa heslá zhodujú). Ak je overenie úspešné, vráti sa klientovi API token. Pi každej ďalšej požiadavke bude klient posielať pridelený API token a server overí (napr. ``auth`` middleware) jeho platnosť (token môže byť invalidovaný, alebo po čase exspiruje).  
+V metóde ``login`` sa overuje používateľ (či je používateľ identifikovaný emailom v DB a či sa heslá zhodujú). Ak je overenie úspešné, vráti sa klientovi API token. Pri každej ďalšej požiadavke bude klient posielať pridelený API token a server overí (napr. ``auth`` middleware) jeho platnosť (token môže byť invalidovaný, alebo po čase exspiruje).  
 
 Vidíme, že v controlleri používame ``RegisterUserValidator``. Vytvorme ho cez CLI:
 ```js

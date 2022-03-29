@@ -1,6 +1,25 @@
 # Slek Lite - 2. časť: vytvorenie autentifikačného aparátu na klientovi a server API
 
-## Vytvorenie komponentov register/login a zadefinovanie smerovania
+**Obsah**:
+* [Vytvorenie komponentov register/login a zadefinovanie smerovania](#anchor1-components)    
+* [Vytvorenie aparátu na autentifikáciu používateľa na klientovi (slek-client)](#anchor2-createc)    
+    * [Autentifikačné služby](#anchor21-services)    
+        * [AuthManager](#anchor211-authmanager)  
+        * [AuthService](#anchor212-authservice)  
+    * [Kontrakty](#anchor22-contracts)  
+    * [Boot súbory axios a auth](#anchor23-boot)  
+        * [Boot súbor axios](#anchor231-bootaxios)  
+        * [Boot súbor auth](#anchor232-bootauth)  
+   * [Store module auth](#anchor24-store)   
+        * [Store module auth: state](#anchor241-state)  
+        * [Store module auth: mutácie](#anchor242-mut)  
+        * [Store module auth: gettre](#anchor243-get)  
+        * [Store module auth: akcie](#anchor244-act)  
+    * [Doplnenie konfiguračného súboru](#anchor25-conf)  
+* [Vytvorenie aparátu na autentifikáciu používateľa na serveri (slek-server)](#anchor31-creates)  
+
+
+## <a name="anchor1-components"></a> Vytvorenie komponentov register/login a zadefinovanie smerovania
 
 V Quasar appke (slek-client) vytvorme základné komponenty používateľského rozhrania pre registráciu (register) a prihlasovanie (login) používateľa.
 
@@ -269,13 +288,13 @@ export default defineComponent({
 </script>
 ```
 
-## Vytvorenie aparátu na autentifikáciu používateľa na klientovi (slek-client)
+## <a name="anchor2-createc"></a> Vytvorenie aparátu na autentifikáciu používateľa na klientovi (slek-client)
 
-### Autentifikačné služby
+### <a name="anchor21-services"></a> Autentifikačné služby
 
 Vytvoríme dve služby, ktoré budú realizovať klúčové úlohy autentifikácie na klientovi. Ide o služby ``AuthManager`` a ``AuthService``.  
 
-#### AuthManager 
+#### <a name="anchor211-authmanager"></a> AuthManager 
 
 Úlohou služby ``AuthManager`` je manažment nad API tokenom, ktorý je klientovi pridelený serverom po úspešnom prihlásení. Manažment zahŕňa uloženie tokenu do local storage na klientovi a obsluhu pri zmene tokena. Túto službu môžeme považovať za "knižnicu as is" a nie je potrebné jej venovať priestor. Ak nepotrebujete, nerobte v nej zmeny. Mala by dobre poslúžiť tak ako je.
 
@@ -365,7 +384,7 @@ class AuthManager {
 export default new AuthManager('auth_token')
 ```
 
-#### AuthService
+#### <a name="anchor212-authservice"></a> AuthService
 
 Úlohou služby ``AuthService`` je poskytnúť metódy na komunikáciu s autentifikačným server API cez HTTP protokol. Ide o metódy ``register``, ``login``, ``logout`` a ``me`` (informácie o aktuálne prihlásenom používateľovi). 
 
@@ -421,7 +440,7 @@ export { default as authManager } from './AuthManager'
 export { default as authService } from './AuthService'
 ```
 
-### Kontrakty
+### <a name="anchor22-contracts"></a> Kontrakty
 
 Na klientovi používane viacero kontraktov (rozhraní). Spomenuli sme už napr. kontrakty ``User``,``RegisterData`` a ``ApiToken``. Vytvorme priečinok ``src/contracts`` a v ňom súbor ``Auth.ts`` s týmito kontraktmi:
 
@@ -459,7 +478,7 @@ export * from './Auth'
 ```
 
 
-### Boot súbory axios a auth
+### <a name="anchor23-boot"></a> Boot súbory axios a auth
 
 V komplexnejších Quasar aplikáciach bežne potrebujeme spustiť nejaký kód ešte predtým, ako sa vytvorí koreňová Vue app inštancia. Za týmto účelom za zvyknú používať tzv. [**boot súbory**](https://quasar.dev/quasar-cli-webpack/boot-files). 
 Boot súbory vytvárame v priečinku ``src/boot``. 
@@ -472,7 +491,7 @@ boot: [
 ],
 ```
 
-#### Boot súbor axios
+#### <a name="anchor231-bootaxios"></a> Boot súbor axios
 
 Upravme súbor ``src/boot/axios.ts`` takto:
 ```js
@@ -559,7 +578,7 @@ export { api }
 
 Boot **súbor Axiosu sme upravili** tak, aby klient v hlavičke každej požiadavky posielal pridelený API token (ak má). 
 
-#### Boot súbor auth
+#### <a name="anchor232-bootauth"></a> Boot súbor auth
 
 Boot aparát použijeme aj na prepojenie autentifikačného aparátu so smerovaním (routes) na strane klienta . 
 
@@ -624,7 +643,7 @@ export default boot(({ router, store }) => {
 Vidíme, že registrujeme (``router.beforeEach``), aby pre každú požiadavku (route), ktorá vyžaduje autentifikáciu (``requiresAuth``) bola vykonaná kontrola (na serveri volanie API metódy``me``), či je používateľ riadne prihlásený (má platný API token). Keď sa vrátime k už zadefinovaným routam (v ``src/router/routes.ts``), vidáme, že ``meta`` atribútom ``requiresAuth`` predurčujeme, že predmetná route podlieha kontrole na autentifikáciu. Túto kontrolu realizujeme v podmienke ``if (to.meta.requiresAuth && !isAuthenticated)``.
 
 
-### Store module auth
+### <a name="anchor24-store"></a> Store module auth
 
 V boot súbore ``auth`` vidíme, že používame **store**. Okrem toho používajú store aj priamo komponenty používateľského rozhrania, napr. ``RegisterPage`` alebo ``LoginPage``.
 
@@ -649,7 +668,7 @@ const Store = createStore<StateInterface>({
 ...
 ```
 
-#### Store module auth: state
+#### <a name="anchor241-state"></a> Store module auth: state
  
 Upravme obsah súboru ``module-auth/state.ts`` takto:
 ```js
@@ -674,7 +693,7 @@ export default state
 
 ``State`` store modulu ``auth`` implementuje rozhranie ``AuthStateInterface``.  State drží informácie o aktuálne prihlásenom používateľovi, status a chybové správy.  Mutáciami meníme ``status``, ktorý môže mať hodnotu "pending", "success", alebo "error".
 
-#### Store module auth: mutácie 
+#### <a name="anchor242-mut"></a> Store module auth: mutácie 
 
 V store module ``auth`` zadefinujme mutácie, a teda upravme súbor ``mutations.ts`` takto:
 ```js
@@ -700,7 +719,7 @@ const mutation: MutationTree<AuthStateInterface> = {
 export default mutation
 ```
 
-#### Store module auth: gettre 
+#### <a name="anchor243-get"></a> Store module auth: gettre 
 
 Súbor ``getters.ts`` upravme takto:
 ```js
@@ -717,7 +736,7 @@ const getters: GetterTree<AuthStateInterface, StateInterface> = {
 export default getters
 ```
 
-#### Store module auth: akcie 
+#### <a name="anchor244-act"></a> Store module auth: akcie 
 
 Súbor ``actions.ts`` upravme takto:
 ```js
@@ -805,7 +824,7 @@ loading (): boolean {
 ```
 Keď používateľ klikne na tlačidlo "Register", akcia ``auth/register`` zmuzuje z``status`` na **pending** a computed atribút ``loading`` sa nastaví na hodnotu ``true``. Tlačidlo "Register" sa po vizuálnej stránke prepne do režimu "loading" (zobrazí sa točiaci sa spinner). Ak úspešne prebehne registrácia, zmutuje ``status`` na **success** a computed atribút ``loading`` sa zmení na hodnotu ``false``, čím sa dostane tlačidlo do pôvodného stavu.
 
-### Doplnenie konfiguračného súboru
+### <a name="anchor25-conf"></a> Doplnenie konfiguračného súboru
 
 Upravme konfiguračný súbor Quasaru ``quasar.config.js``. Pridajme atribút ``sourceFiles`` a v ``build`` zmeňme hodnotu atribútu ``vueRouterMode`` a pridajme ``env``:
 ```js
@@ -819,7 +838,7 @@ build: {
 ...
 ```
 
-## Vytvorenie aparátu na autentifikáciu používateľa na serveri (slek-server)
+## <a name="anchor31-creates"></a> Vytvorenie aparátu na autentifikáciu používateľa na serveri (slek-server)
 
 Vytvorme ``AuthController``. V Adonis projekte (slek-server) vytvorme v priečinku ``app/Controllers/Http`` súbor ``AuthController.ts`` cez CLI:
 ```js

@@ -3,7 +3,9 @@
 ## VPWA
 
 1. [Úvod](zdroje/1p-uvod.pdf)
+
 2. [Vue.js: reaktivita, komponenty, životný cyklus komponentu, jednosmerné/obojsmerné previazanie, metódy, watch/conputed, props, slot, udalosti, podmienené vykresľovanie, zoznamy, state management](zdroje/2p-vuejs.pdf)
+
 3. TypeScript:
     * [Úvod](zdroje/3p-ts-01-intro.pdf), [TypeScript Quasar projekt z prednášky](zdroje/3p-quasar.zip)  
     * [Základné typy](zdroje/3p-ts-02-basic-types.pdf)  
@@ -11,7 +13,14 @@
     * [Triedy a rohrania](zdroje/4p-ts-04-classes-interfaces.pdf)
     * [Operátory typov, genericita](zdroje/4p-ts-05-type-operators-generics.pdf)
     * [Moduly](zdroje/4p-ts-06-moduls.pdf)
+
 4. [Backend: AdonisJS, Node.js, základné koncepty: routing, HTTP Context, controller, middleware, database (query builder, raw query, ORM), auth, HTTP vs websocket](zdroje/05-be-adonisjs.pdf)
+
+5. Hands-on Slek Lite aplikácia:
+    * [1. časť: vytvorenie projektov, nainštalovanie prerekvizít a vytvorenie databázových modelov](slek/part1/readme.md)
+    * [2. časť: vytvorenie autentifikačného aparátu na klientovi a server API](slek/part2/readme.md)
+
+
 
 ### Materiály pre študentov, ktorí nemali WTECH
 

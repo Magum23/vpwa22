@@ -1,7 +1,12 @@
 # Slek Lite - 2. časť: vytvorenie autentifikačného aparátu na klientovi a server API
 
 **Obsah**:
-* [Vytvorenie komponentov register/login a zadefinovanie smerovania](#anchor1-components)    
+* [Vytvorenie komponentov register/login a zadefinovanie smerovania](#anchor1-components)   
+    * [Komponent MainLayout](#anchor11-layout)  
+    * [Komponent RegisterPage](#anchor12-register)  
+    * [Routes](#anchor13-routes) 
+    * [Komponent LoginPage](#anchor14-login) 
+    * [Komponent ChannelPage](#anchor15-channel) 
 * [Vytvorenie aparátu na autentifikáciu používateľa na klientovi (slek-client)](#anchor2-createc)    
     * [Autentifikačné služby](#anchor21-services)    
         * [AuthManager](#anchor211-authmanager)  
@@ -22,6 +27,8 @@
 ## <a name="anchor1-components"></a> Vytvorenie komponentov register/login a zadefinovanie smerovania
 
 V Quasar appke (slek-client) vytvorme základné komponenty používateľského rozhrania pre registráciu (register) a prihlasovanie (login) používateľa.
+
+### <a name="anchor11-layout"></a> Komponent MainLayout
 
 V priečinku ``src/layouts`` otvorme súbor (komponent) ``MainLayout.vue`` a upravme jeho obsah takto:
 
@@ -51,6 +58,8 @@ export default defineComponent({
 })
 </script>
 ```
+
+### <a name="anchor12-register"></a> Komponent RegisterPage
 
 V priečinku ``src/pages`` vytvorme súbor (komponent) ``RegisterPage.vue`` s týmto obsahom:
 
@@ -153,6 +162,8 @@ export default defineComponent({
 
 Komponent obsahuje formulár na registráciu používateľa, konkrétne vstupné polia (email a heslo) a tlačidlo na odoslanie formulára. K logike komponentu sa vrátime kúsok ďalej.
 
+### <a name="anchor13-routes"></a> Routes
+
 Zadefinujme routovanie. V priečinku ``src/router`` otvorme súbor ``routes.ts`` a zadefinujme tieto cesty:
 
 ```js
@@ -181,6 +192,8 @@ Zadefinujme routovanie. V priečinku ``src/router`` otvorme súbor ``routes.ts``
 ```
 
 Vidíme, že koreňovú cestu ``/`` presmerovávame na ``home`` route. Routa s názvom ``home`` (``name: 'home'``) je definovaná v ceste ``path: '/channels'``.  Atribút ``requiresAuth`` určuje, že cesta ``'/channels'`` vyžaduje autentifikáciu, teda je prístupná iba prihlásenému používateľovi. Preto, ak používateľ nie je prihlásený, budeme ho chcieť presmerovať na cestu ``/auth/login``. Inými slovami, ku kanálom sa vie dostať až prihlásený používateľ.
+
+### <a name="anchor14-login"></a> Komponent LoginPage
 
 V priečinku ``src/pages`` vytvorme súbor (komponent) ``LoginPage.vue`` s týmto obsahom:
 ```js
@@ -270,6 +283,8 @@ export default defineComponent({
 ```
 
 Komponent obsahuje formulár na prihlásenie používateľa, konkrétne vstupné polia (email a heslo) a tlačidlo na odoslanie formulára. K logike komponentu sa vrátime kúsok ďalej.
+
+### <a name="anchor15-channel"></a> Komponent ChannelPage
 
 V priečinku ``src/pages`` vytvorme súbor (komponent) ``ChannelPage.vue`` s týmto obsahom (neskôr ho nahradíme plnohodnotným obsahom):
 ```js

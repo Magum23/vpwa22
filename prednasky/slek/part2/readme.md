@@ -401,7 +401,7 @@ export default new AuthManager('auth_token')
 
 #### <a name="anchor212-authservice"></a> AuthService
 
-Úlohou služby ``AuthService`` je poskytnúť metódy na komunikáciu s autentifikačným server API cez HTTP protokol. Ide o metódy ``register``, ``login``, ``logout`` a ``me`` (informácie o aktuálne prihlásenom používateľovi). Služba používa kontrakty ``ApiToken``, ``LoginCredentials``, ``RegisterData`` a ``User`` (podrobnejšie uvedené nižšie).
+Úlohou služby ``AuthService`` je poskytnúť metódy na komunikáciu s autentifikačným server API cez HTTP protokol. Ide o metódy ``register``, ``login``, ``logout`` a ``me`` (informácie o aktuálne prihlásenom používateľovi). Služba používa kontrakty ``ApiToken``, ``LoginCredentials``, ``RegisterData`` a ``User`` (definície kontraktov nižšie).
 
 Vytvorme v priečinku ``src/services`` súbor ``AuthService.ts`` s týmto obsahom:
 ```js

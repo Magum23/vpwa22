@@ -1,4 +1,4 @@
-# Slek Lite - 2. časť: 
+# Slek Lite - 2. časť: vytvorenie autentifikačného aparátu na klientovi a server API
 
 ## Vytvorenie komponentov register/login a zadefinovanie smerovania
 

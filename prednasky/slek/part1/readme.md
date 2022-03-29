@@ -1,8 +1,19 @@
 # Slek Lite - 1. časť: vytvorenie projektov, nainštalovanie prerekvizít a vytvorenie databázových modelov
 
-## Vytvorneie nových projektov - klient (Quasar app) a server api (AdonisJS)
+**Obsah**:
+* [Vytvorneie nových projektov - klient (Quasar app) a server api (AdonisJS)](#anchor1-create)
+  * [Klient](#anchor11-client)
+  * [Server](#anchor12-server)
+* [Inštalácia a konfigurácia prerekvizít slek-server](#anchor2-install)
+* [Databázové modely](#anchor3-db)
 
-### Klient
+* [Vytvorneie nových projektov - klient (Quasar app) a server api (AdonisJS)](#anchor1)
+
+
+## <a name="anchor1-create"></a> Vytvorneie nových projektov - klient (Quasar app) a server api (AdonisJS)
+
+
+### <a name="anchor11-client"> Klient
 
 Vytvorme si nový Quasar projekt CLI príkazmi:
 ```js
@@ -29,7 +40,7 @@ quasar dev
 
 Ak zbehne build bez zásadných chýb a demo aplikácia sa otvorí v prehliadači, máme kostru projektu - klientskej časti - pripravenú.
 
-### Server
+### <a name="anchor11-server"> Server
 
 Vytvorme nový Adonis projekt CLI príkazom:
 
@@ -48,7 +59,7 @@ node ace serve --watch
 
 Ak zbehne build bez zásadných chýb a demo sa otvorí v prehliadači, máme kostru projektu - serverovej časti - pripravenú.
 
-## Inštalácia a konfigurácia prerekvizít slek-server
+## <a name="anchor2-install"> Inštalácia a konfigurácia prerekvizít slek-server
 
 Do Adonis projektu doinštalujme balíček "Lucid". Ide o oficiálny SQL ORM (objektovo-relačný mapovač )pre Adonis. Budeme používať [SQLite databázu](https://www.sqlite.org/index.html), preto vyberme **driver SQLite**:
 ```js
@@ -135,7 +146,7 @@ import type { WsContextContract } from '@ioc:Ruby184/Socket.IO/WsContext'
   }
 ```
 
-## Databázové modely
+## <a name="anchor3-db"> Databázové modely
 
 Vytvorme modely ``Channel`` a ``Message``. Medzi týmito modelmi bude vzťah **1:M** (kanál môže obsahovať viacero správ, správa je spojená s kanálom). Cez CLI príkazy vytvorme migračné súbory a modely ako také:
 ```js
@@ -212,7 +223,7 @@ export default class Message extends BaseModel {
 }
 ```
 
-Do migračné súboru pre ``Channel`` (``database/migrations/..._channels.ts``) pridajme v metóde ``up`` stĺpec **name**:
+Do migračného súboru pre ``Channel`` (``database/migrations/..._channels.ts``) pridajme v metóde ``up`` stĺpec **name**:
 
 ```js
 import BaseSchema from '@ioc:Adonis/Lucid/Schema'

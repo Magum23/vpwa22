@@ -2,7 +2,7 @@
 
 ## Vytvorenie komponentov register/login a zadefinovanie smerovania
 
-V Quasar appke (slek-client) vytvorme základné komponenty používateľského rozhrania pre prihlasovanie (login) a registráciu (register) používateľa.
+V Quasar appke (slek-client) vytvorme základné komponenty používateľského rozhrania pre registráciu (register) a prihlasovanie (login) používateľa.
 
 V priečinku ``src/layouts`` otvorme súbor (komponent) ``MainLayout.vue`` a upravme jeho obsah takto:
 
@@ -134,7 +134,7 @@ export default defineComponent({
 
 Komponent obsahuje formulár na registráciu používateľa, konkrétne vstupné polia (email a heslo) a tlačidlo na odoslanie formulára. K logike komponentu sa vrátime kúsok ďalej.
 
-Zadefinujme routovanie. V priečinku ``src/router`` otvorme súbor ``routes.ts`` a zdaefinujme tieto cesty:
+Zadefinujme routovanie. V priečinku ``src/router`` otvorme súbor ``routes.ts`` a zadefinujme tieto cesty:
 
 ```js
   {
@@ -161,7 +161,7 @@ Zadefinujme routovanie. V priečinku ``src/router`` otvorme súbor ``routes.ts``
   },
 ```
 
-Vidíme, že koreňovú cestu ``/`` presmerovávame na ``home`` route. Routa s názvom ``home`` (``name: 'home'``) je definovaná v ceste ``path: '/channels'``.  Atribút ``requiresAuth`` určuje, že cesta ``'/channels'`` vyžaduje autentifikáciu, teda je prístupná iba prihlásenému používateľovi. Preto, ak používateľ nie je prihlásený, budeme ho chcieť presmerovať na cestu ``/auth/login``. 
+Vidíme, že koreňovú cestu ``/`` presmerovávame na ``home`` route. Routa s názvom ``home`` (``name: 'home'``) je definovaná v ceste ``path: '/channels'``.  Atribút ``requiresAuth`` určuje, že cesta ``'/channels'`` vyžaduje autentifikáciu, teda je prístupná iba prihlásenému používateľovi. Preto, ak používateľ nie je prihlásený, budeme ho chcieť presmerovať na cestu ``/auth/login``. Inými slovami, ku kanálom sa vie dostať až prihlásený používateľ.
 
 V priečinku ``src/pages`` vytvorme súbor (komponent) ``LoginPage.vue`` s týmto obsahom:
 ```js
@@ -277,7 +277,7 @@ Vytvoríme dve služby, ktoré budú realizovať klúčové úlohy autentifikác
 
 #### AuthManager 
 
-Úlohou služby ``AuthManager`` je manažment nad API tokenom, ktorý je klientovi pridelený serverom po úspešnom prihlásení. Manažment zahŕňa uloženie tokenu do local storage na klientovi a obsluhu pri zmene tokena. Túto službu môžeme považovať za "knižnicu as is" a nie je potrebné jej venovať priestor a ak veľmi nepotrebujete, nerobte v nej zmeny. Mala by dobre poslúžiť tak ako je.
+Úlohou služby ``AuthManager`` je manažment nad API tokenom, ktorý je klientovi pridelený serverom po úspešnom prihlásení. Manažment zahŕňa uloženie tokenu do local storage na klientovi a obsluhu pri zmene tokena. Túto službu môžeme považovať za "knižnicu as is" a nie je potrebné jej venovať priestor. Ak nepotrebujete, nerobte v nej zmeny. Mala by dobre poslúžiť tak ako je.
 
 Vytvorme v priečinku ``src`` priečinok ``services`` a v ňom súbor ``AuthManager.ts `` s týmto obsahom:
 
@@ -411,9 +411,9 @@ export default new AuthService()
 
 Metódy služby vytvárajú požiadavky na rovnomenné API routes na serveri. Na vytváranie asynchrónnych HTTP požiadaviek používame knižnicu [Axios](https://github.com/axios/axios).
 
-Napríklad, metóda ``register`` vytvára HTTP požiadavku typu POST (HTTP netóda POST) smerovanú na routu (endpoint) ``auth/register``, resp. ``http://localhost:3333/auth/register``. V požiadavke posielamne informácie zo vstupných polí registračného formulára (``RegisterData``). Na serveri požiadavku obslúži rovnomenná metóda ``register`` controllera ``AuthController`` (``AuthController``, je uvedený nižšie). Ak je registrácia úspešná, odpoveďou je zaregistrovaný používateľ, a teda objekt typu ``User``. 
+Napríklad, metóda ``register`` vytvára HTTP požiadavku typu POST (HTTP netóda POST) smerovanú na routu (endpoint) ``auth/register``, resp. ``http://localhost:3333/auth/register``. V požiadavke posielame informácie zo vstupných polí registračného formulára (``RegisterData``). Na serveri požiadavku obslúži rovnomenná metóda ``register`` controllera ``AuthController`` (``AuthController``, je uvedený nižšie). Ak je registrácia úspešná, odpoveďou je zaregistrovaný používateľ, a teda objekt typu ``User``. 
 
-Metódda ``login`` vytvára HTTP požiadavku typu POST na routu ``auth/login``. V požiadavke posielamne informácie zo vstupných polí prihlasovacieho formulára. Na serveri požiadavku obslúži rovnomenná metóda ``login`` controllera ``AuthController``. Ak je prihlásenie úspešné, odpoveďou je ``ApiToken``. Pri ďalších požiadavkách bude klient posielať (v hlavičke požiadavky) pridelený API token a server overí (napr. ``auth`` middleware) jeho platnosť.
+Metódda ``login`` vytvára HTTP požiadavku typu POST na routu ``auth/login``. V požiadavke posielame informácie zo vstupných polí prihlasovacieho formulára. Na serveri požiadavku obslúži rovnomenná metóda ``login`` controllera ``AuthController``. Ak je prihlásenie úspešné, odpoveďou je ``ApiToken``. Pri ďalších požiadavkách bude klient posielať (v hlavičke požiadavky) pridelený API token a server overí (napr. ``auth`` middleware) jeho platnosť.
 
 V priečinku ``src/services`` vytvorme súbor ``index.ts``, ktorého obsah je takýto:
 ```js
@@ -464,7 +464,7 @@ export * from './Auth'
 V komplexnejších Quasar aplikáciach bežne potrebujeme spustiť nejaký kód ešte predtým, ako sa vytvorí koreňová Vue app inštancia. Za týmto účelom za zvyknú používať tzv. [**boot súbory**](https://quasar.dev/quasar-cli-webpack/boot-files). 
 Boot súbory vytvárame v priečinku ``src/boot``. 
 
-Môžeme vidieť, že sa v priečinku``src/boot`` nachádza súbor ``axios.ts``. Boot súbor axios.ts vytvára inštanciu a sprístupňuje nám Axios API v našej Quasar aplikácii. Boot súbory je potrebné zaregistrovať v konfiguračnom súbore ``quasar.config.js``. 
+Môžeme vidieť, že sa v priečinku ``src/boot`` nachádza súbor ``axios.ts``. Boot súbor ``axios.ts`` vytvára inštanciu a sprístupňuje nám Axios API v našej Quasar aplikácii. Boot súbory je potrebné zaregistrovať v konfiguračnom súbore ``quasar.config.js``. 
 
 ```js
 boot: [
@@ -629,7 +629,7 @@ Vidíme, že registrujeme (``router.beforeEach``), aby pre každú požiadavku (
 V boot súbore ``auth`` vidíme, že používame **store**. Okrem toho používajú store aj priamo komponenty používateľského rozhrania, napr. ``RegisterPage`` alebo ``LoginPage``.
 
 V boot súbore ``auth`` používame akciu storu ``store.dispatch('auth/check')``. 
-Úlohou akcie ``auth/check`` je overiť použitím služby ``authService.me()`` , či je používateľ prihlásený (authService je inštancia ``src/services/AuthSerice.ts``).
+Úlohou akcie ``auth/check`` je overiť použitím služby ``authService.me()`` , či je používateľ prihlásený (``authService`` je inštancia ``src/services/AuthSerice.ts``).
 
 V komponente ``src/Pages/RegisterPage.vue`` používame v metóde ``onSubmit`` akciu ``this.$store.dispatch('auth/register')``. Úlohou akcie ``auth/register`` je zaregistrovať používateľa volaním služby ``authService.register(form)``.
 
@@ -672,7 +672,7 @@ function state (): AuthStateInterface {
 export default state
 ```
 
-``State`` store modulu ``auth`` implementuje rozhranie ``AuthStateInterface``.  State drží informácie o aktuálne prihlásenom používateľovi, status a chybové správy.  Mutáciami meníme ``status`, ktorý môže mať hodnotu 'pending', 'success', alebo 'error'.
+``State`` store modulu ``auth`` implementuje rozhranie ``AuthStateInterface``.  State drží informácie o aktuálne prihlásenom používateľovi, status a chybové správy.  Mutáciami meníme ``status``, ktorý môže mať hodnotu "pending", "success", alebo "error".
 
 #### Store module auth: mutácie 
 
@@ -786,7 +786,7 @@ const actions: ActionTree<AuthStateInterface, StateInterface> = {
 export default actions
 ```
 
-Vidíme, že akcie okrem toho, že volajú služby ``authManager`` a ``authService`` priebežne menia state store modulu, konkrétne ``status`` prostredníctvom mutácií. Napríklad, akcia ``login`` najskôr zmutuje ``status`` na **pending** (``commit('AUTH_START')``) a následne čaká na vykonanie asynchrónnej metódy ``authService.login(credentials)``. V prípade úspechu (fulfilled) je ``status`` zmutovaný na **success** (``commit('AUTH_SUCCESS', null)``). Ak nastane chyba (vyhodená výnimka), ``status`` je zmutovaný na **error** (``commit('AUTH_ERROR', err)``). 
+Vidíme, že akcie okrem toho, že volajú služby ``authManager`` a ``authService`` priebežne menia ``state`` store modulu, konkrétne ``status`` prostredníctvom mutácií. Napríklad, akcia ``login`` najskôr zmutuje ``status`` na **pending** (``commit('AUTH_START')``) a následne čaká na vykonanie asynchrónnej metódy ``authService.login(credentials)``. V prípade úspechu (fulfilled) je ``status`` zmutovaný na **success** (``commit('AUTH_SUCCESS', null)``). Ak nastane chyba (vyhodená výnimka), ``status`` je zmutovaný na **error** (``commit('AUTH_ERROR', err)``). 
 
 Zmenu stavu (``status``) používame aj v komponentoch používateľského rozhrania. Napríklad, computed atribút ``loading`` v komponente s registračnym formulárom:
 ```js
@@ -891,7 +891,7 @@ import { schema, rules } from '@ioc:Adonis/Core/Validator'
 ```
 Validačná schéma definuje pravidlá pre hodnoty vstupných polí ``email`` a ``password`` získaných z registračného formulára. [Viac informácií o validačných schémach v dokumentácií](https://docs.adonisjs.com/guides/validator/introduction).
 
-Zadefinujme API routes pre autentifikáciu. Do súbore start/routes.ts pridajme:
+Zadefinujme API routes pre autentifikáciu. Do súboru ``start/routes.ts`` pridajme:
 ```js
 Route.group(() => {
   Route.post('register', 'AuthController.register')
@@ -901,6 +901,8 @@ Route.group(() => {
 }).prefix('auth')
 ```
 Každú požiadavku cez metódu POST HTTP protokolu smerovanú na ``/auth/register`` obslúži ``AuthController``, konkrétne metóda ``register``. Ostatné podobne. Smerovania na ``/auth/logout`` a ``/auth/me`` majú navyše kontrolu, či má požiadavka oprávnenie, resp. či používateľ, ktorý požiadavku poslal je aktuálne prihlásený. Kontrolu oprávnenia zabezpečuje middleware ``auth``.
+
+Týmto máme vytvorenú ukážku autentifikačného aparátu ako na klientovi, tak aj na serveri. Pre autentifikáciu sme použili HTTP protokol. Nabudúce pokračujeme vytvorením aparátu pre kanály a výmenu správ. Pre túto časť aplikácie nebudeme používať HTTP protokol, ale websockety.
 
 Koniec druhej časti.
 [Zdrojový kód prvej časti - slek-server a sleck-client]()

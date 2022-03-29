@@ -1,7 +1,7 @@
 # Slek Lite - 1. časť: vytvorenie projektov, nainštalovanie prerekvizít a vytvorenie databázových modelov
 
 **Obsah**:
-* [Vytvorneie nových projektov - klient (Quasar app) a server api (AdonisJS)](#anchor1-create)
+* [Vytvorenie nových projektov - klient (Quasar app) a server api (AdonisJS)](#anchor1-create)
   * [Klient](#anchor11-client)
   * [Server](#anchor12-server)
 * [Inštalácia a konfigurácia prerekvizít slek-server](#anchor2-install)
@@ -10,7 +10,7 @@
 * [Vytvorneie nových projektov - klient (Quasar app) a server api (AdonisJS)](#anchor1)
 
 
-## <a name="anchor1-create"></a> Vytvorneie nových projektov - klient (Quasar app) a server api (AdonisJS)
+## <a name="anchor1-create"></a> Vytvorenie nových projektov - klient (Quasar app) a server api (AdonisJS)
 
 
 ### <a name="anchor11-client"> Klient
@@ -40,7 +40,7 @@ quasar dev
 
 Ak zbehne build bez zásadných chýb a demo aplikácia sa otvorí v prehliadači, máme kostru projektu - klientskej časti - pripravenú.
 
-### <a name="anchor11-server"> Server
+### <a name="anchor12-server"> Server
 
 Vytvorme nový Adonis projekt CLI príkazom:
 

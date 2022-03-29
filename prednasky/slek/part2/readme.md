@@ -766,11 +766,6 @@ const actions: ActionTree<AuthStateInterface, StateInterface> = {
     try {
       commit('AUTH_START')
       const user = await authService.me()
-      // join user to general channel - hardcoded for now
-      if (user?.id !== state.user?.id) {
-        await dispatch('channels/join', 'general', { root: true })
-      }
-
       commit('AUTH_SUCCESS', user)
       return user !== null
     } catch (err) {
@@ -837,7 +832,7 @@ loading (): boolean {
    return this.$store.state.auth.status === 'pending'
 }
 ```
-Keď používateľ klikne na tlačidlo "Register", akcia ``auth/register`` zmuzuje z``status`` na **pending** a computed atribút ``loading`` sa nastaví na hodnotu ``true``. Tlačidlo "Register" sa po vizuálnej stránke prepne do režimu "loading" (zobrazí sa točiaci sa spinner). Ak úspešne prebehne registrácia, zmutuje ``status`` na **success** a computed atribút ``loading`` sa zmení na hodnotu ``false``, čím sa dostane tlačidlo do pôvodného stavu.
+Keď používateľ klikne na tlačidlo "Register", akcia ``auth/register`` zmutuje``status`` na **pending** a computed atribút ``loading`` sa nastaví na hodnotu ``true``. Tlačidlo "Register" sa po vizuálnej stránke prepne do režimu "loading" (zobrazí sa točiaci sa spinner). Ak úspešne prebehne registrácia, zmutuje ``status`` na **success** a computed atribút ``loading`` sa zmení na hodnotu ``false``, čím sa dostane tlačidlo do pôvodného stavu.
 
 ### <a name="anchor25-conf"></a> Doplnenie konfiguračného súboru
 

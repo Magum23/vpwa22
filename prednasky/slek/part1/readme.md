@@ -50,7 +50,7 @@ Ak zbehne build bez zásadných chýb a demo sa otvorí v prehliadači, máme ko
 
 ## Inštalácia a konfigurácia prerekvizít slek-server
 
-Do Adonis projektu doinštalujme balíček "Lucid". Ide o oficiálny SQL ORMpre Adonis. Budeme používať [SQLite databázu](https://www.sqlite.org/index.html), preto vyberme **driver SQLite**:
+Do Adonis projektu doinštalujme balíček "Lucid". Ide o oficiálny SQL ORM (objektovo-relačný mapovač )pre Adonis. Budeme používať [SQLite databázu](https://www.sqlite.org/index.html), preto vyberme **driver SQLite**:
 ```js
 npm i @adonisjs/lucid && node ace configure @adonisjs/lucid
 ```
@@ -111,7 +111,7 @@ V súbore ``start/wsKernel.ts`` zaregistrujme globálny ``Auth`` middleware pre 
 ```js
 Ws.middleware.register([() => import('App/Middleware/Auth')])
 ```
-Do súboru ``app/Middleware/Auth.ts`` pridajme funkciu ``wsHandle``, ktorá bude zabezpečovať, že websocketové požiadavky prejdu konstrolou na autentifikovaného používateľa (podobne ako funkcia ``handle`` pre HTTP požiadavky):
+Do súboru ``app/Middleware/Auth.ts`` pridajme funkciu ``wsHandle``, ktorá bude zabezpečovať, že websocketové požiadavky prejdu kontrolou na autentifikovaného používateľa (podobne ako funkcia ``handle`` pre HTTP požiadavky):
 
 ```js
 import type { WsContextContract } from '@ioc:Ruby184/Socket.IO/WsContext'
@@ -147,7 +147,7 @@ node ace make:model Message
 
 V priečinku ``app/models`` nájdeme vytvorené modely ``Channel`` a ``Message`` a v priečinku ``database/migrations`` zodpovedajúce migračné súbory. 
 
-V modeli ``Channel`` pridajme stĺpec (atribút) **name** a zdafinujme vzťah **hasMany** na model ``Message``. Správa je prepojená s kanálom cez cudzí kľúč (foreign key) **channelId**:
+V modeli ``Channel`` pridajme stĺpec (atribút) **name** a zadefinujme vzťah **hasMany** na model ``Message``. Správa je prepojená s kanálom cez cudzí kľúč (foreign key) **channelId**:
 ```js
 import { DateTime } from 'luxon'
 import { BaseModel, column, HasMany, hasMany } from '@ioc:Adonis/Lucid/Orm'
@@ -347,7 +347,7 @@ Seeder nám vytvorí kanál s názvom "general".
 node ace migration:refresh --seed
 ```
 
-Ak nemáte, odporúčam nainšlovať si prehliadač pre SQLite databázu, napríklad [DB Browser for SQLite](https://sqlitebrowser.org/dl/). Skontrolujte štruktúru a obsah databázy, či zodpovedá tomu, čo sme krok-za-krokom vytvorili. 
+Ak nemáte, odporúčam nainštalovať si prehliadač pre SQLite databázu, napríklad [DB Browser for SQLite](https://sqlitebrowser.org/dl/). Skontrolujte štruktúru a obsah databázy, či zodpovedá tomu, čo sme krok-za-krokom vytvorili. 
 
 Koniec prvej časti.
 [Zdrojový kód prvej časti - slek-server]()

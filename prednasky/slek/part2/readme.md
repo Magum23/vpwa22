@@ -933,4 +933,4 @@ Každú požiadavku cez metódu POST HTTP protokolu smerovanú na ``/auth/regist
 Týmto máme vytvorenú ukážku autentifikačného aparátu ako na klientovi, tak aj na serveri. Pre autentifikáciu sme použili HTTP protokol. Nabudúce pokračujeme vytvorením aparátu pre kanály a výmenu správ. Pre túto časť aplikácie nebudeme používať HTTP protokol, ale websockety.
 
 Koniec druhej časti.
-[Zdrojový kód po druhej časti - slek-server a sleck-client]()
+[Zdrojový kód po druhej časti - slek-server a sleck-client](../slek-part2.zip)

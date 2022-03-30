@@ -18,7 +18,9 @@
 
 5. Hands-on Slek Lite aplikácia:
     * [1. časť: vytvorenie projektov, nainštalovanie prerekvizít a vytvorenie databázových modelov](slek/part1/readme.md)
+        * [Zdrojový kód po prvej časti](slek/slek-part1.zip)
     * [2. časť: vytvorenie autentifikačného aparátu na klientovi a server API](slek/part2/readme.md)
+        * [Zdrojový kód po druhej časti](slek/slek-part2.zip)
 
 
 

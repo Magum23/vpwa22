@@ -643,7 +643,7 @@ Boot súbor **zaregistrujme** v konfiguračnom súbore Quasaru. Do ``quasar.conf
     ],
 ```
 
-## <a name="anchor4-store"></a> Store modul channel
+## <a name="anchor4-store"></a> Store modul channels
 V store module ``channels`` budeme mať uložené správy pre kanály. Kľúčom bude názov kanála, hodnotou bude pole správ pre daný kanál.
 
 Vytvorme cez Quasar CLI nový store module ``channels``:
@@ -652,7 +652,7 @@ Vytvorme cez Quasar CLI nový store module ``channels``:
 quasar new store -f ts channels
 ```
 
-### <a name="anchor41-state"></a> Store modul channel: state
+### <a name="anchor41-state"></a> Store modul channels: state
 
 V priečinku ``src/store/module-channels`` zadefinujme ``state`` nového store modulu:
 ```ts
@@ -679,7 +679,7 @@ export default state
 
 Zadefinujme nad storom **mutácie, akcie a gettre** a **upravme indexy**.
 
-### <a name="anchor42-mutations"></a> Store modul channel: mutácie
+### <a name="anchor42-mutations"></a> Store modul channels: mutácie
 
 Kód v súbore ``module-channels/mutations.ts``:
 ```ts
@@ -715,7 +715,7 @@ const mutation: MutationTree<ChannelsStateInterface> = {
 export default mutation
 ```
 
-### <a name="anchor43-actions"></a> Store modul channel: akcie
+### <a name="anchor43-actions"></a> Store modul channels: akcie
 
 Kód v súbore ``module-channels/actions.ts``:
 ```ts
@@ -753,7 +753,7 @@ const actions: ActionTree<ChannelsStateInterface, StateInterface> = {
 export default actions
 ```
 
-### <a name="anchor44-getters"></a> Store modul channel: gettre
+### <a name="anchor44-getters"></a> Store modul channels: gettre
 
 Kód v súbore ``module-channels/getters.ts``:
 ```ts
@@ -779,7 +779,7 @@ const getters: GetterTree<ChannelsStateInterface, StateInterface> = {
 export default getters
 ```
 
-### <a name="anchor45-index"></a> Store modul channel: index
+### <a name="anchor45-index"></a> Store modul channels: index
 
 Kód v súbore ``module-channels/index.ts``:
 ```ts
@@ -801,7 +801,7 @@ const authModule: Module<ChannelsStateInterface, StateInterface> = {
 export default authModule
 ```
 
-### <a name="anchor46-indexs"></a> Zaregistrovanie store modulu channel 
+### <a name="anchor46-indexs"></a> Zaregistrovanie store modulu channels 
 
 V súbore ``store/index.ts`` **zaregistrujme** store module ``channels``:
 ```ts

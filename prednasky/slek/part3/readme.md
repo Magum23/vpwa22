@@ -1006,7 +1006,7 @@ public register() {
 }
 ```
 
-## <a name="anchor7-route"></a> Zaregistorvanie obsluhy pre kanály na strane servera
+## <a name="anchor7-route"></a> Zaregistrovanie obsluhy pre kanály na strane servera
 
 Pri HTTP protokole definujeme smerovanie (routes) v súbore ``start/routes.ts``. V prípade websocketov definujeme obsluhu v súbore ``start/socket.ts``:
 ```ts

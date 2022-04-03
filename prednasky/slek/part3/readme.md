@@ -893,7 +893,7 @@ async logout ({ commit, dispatch }) {
 
 ## <a name="anchor6-server"></a> Vytvorenie služieb na výmenu správ na serveri (slek-server)
 
-Vytvorme v priečinku ``app/controllers`` priečinok ``Ws`` a v ňom controller ``MessageController.ts`` s týmto kódom:
+Vytvorme v priečinku ``app/Controllers`` priečinok ``Ws`` a v ňom controller ``MessageController.ts`` s týmto kódom:
 
 ```ts
 import type { WsContextContract } from '@ioc:Ruby184/Socket.IO/WsContext'
@@ -1208,7 +1208,7 @@ export default class ActivityController {
   }
 }
 ```
-``ActivityController`` má dve obslužné metódy ``onConnected`` a ``onDisconnected``. Vytváraním inštancie ``ActivitySocketManager`` na klientovi sa vytvára socket medzi klientom a serverom pre namespace '/'. Po úspešnom vytvorení spojenia sa emituje udalosť ``connected``. Do súboru ``start/socket.ts`` pridajme absluhu ``ActivityController.onConnected`` pre túto udalosť. Podobne  ``disconnected``:
+``ActivityController`` má dve obslužné metódy ``onConnected`` a ``onDisconnected``. Vytváraním inštancie ``ActivitySocketManager`` na klientovi sa vytvára socket medzi klientom a serverom pre namespace '/'. Po úspešnom vytvorení spojenia sa emituje udalosť ``connected``. Do súboru ``start/socket.ts`` pridajme obsluhu ``ActivityController.onConnected`` pre túto udalosť. Podobne  ``disconnected``:
 ```ts
 import Ws from '@ioc:Ruby184/Socket.IO/Ws'
 

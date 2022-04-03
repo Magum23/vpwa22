@@ -339,7 +339,7 @@ Poznámka: pôvodné komponenty v priečinku ``src/components`` môžeme odstrá
 
 ## <a name="anchor3-servicesc"></a> Vytvorenie služieb na výmenu správ na klientovi (slek-client)
 
-Na výmenu správ budeme používať websockety. Používame knižnicu [socket.io](https://socket.io/). Keď si pozrieme dokumentáciu, vidíme, že potrebujeme podporu websocketov ako na klietovi, tak aj na serveri.
+Na výmenu správ budeme používať websockety. Používame knižnicu [socket.io](https://socket.io/). Keď si pozrieme dokumentáciu, vidíme, že potrebujeme podporu websocketov ako na klientovi, tak aj na serveri.
 
 V serverovej časti našej aplikácie (AdonisJS:slek-server) sme si v prvej časti podporu vytvorili. Na klientovi si ju musíme vytvoriť.  
 
@@ -352,7 +352,7 @@ npm install socket.io-client
 ### <a name="anchor31-socketmanager"></a> Služba SocketManager
 
 Vytvorme v priečinku ``src/services`` súbor ``SocketManager.ts``.
-Úlohou služby ``SocketManager`` je manažment nad websocketmi na strane klienta. Je to akýsi wrapper nad socket.io klienta. Podobne, ako službu ``AuthManager``, aj túto **službu môžeme považovať za "knižnicu as is"** a nie je potrebné jej venovať priestor. **Ak nepotrebujete, nerobte v nej zmeny**. Mala by dobre poslúžiť tak ako je:
+Úlohou služby ``SocketManager`` je manažment nad websocketmi na strane klienta. Je to akýsi wrapper nad socket.io-client. Podobne, ako službu ``AuthManager``, aj túto **službu môžeme považovať za "knižnicu as is"** a nie je potrebné jej venovať priestor. **Ak nepotrebujete, nerobte v nej zmeny**. Mala by dobre poslúžiť tak ako je:
 
 ```ts
 import type { BootCallback } from '@quasar/app-webpack'
@@ -528,7 +528,7 @@ export abstract class SocketManager implements SocketManagerContract {
 
 ### <a name="anchor32-channelservice"></a> Služby ChannelService a ChannelSocketManager
 
-Služba ``ChannelService`` nám bude vytvárať a udržiavať websocket pripojenia (metóda ``join``), resp. odpojenie z kanálu (metóda ``leave``). V metóde ``join`` vytvoríme inštanciu ``ChannelSocketManager``. Tento manažér sa pripojí na ``socket.io`` namespace pre daný kanál, inicializuje poslucháča na udalosť **message** (na strane klienta) a definuje metódy ``addMessage`` a ``loadMessages``:
+Služba ``ChannelService`` nám bude vytvárať a udržiavať websocket pripojenia (metóda ``join``), resp. odpojenie z kanálu (metóda ``leave``). V metóde ``join`` vytvoríme inštanciu ``ChannelSocketManager``. Tento manažér sa pripája na ``socket.io`` namespace pre daný kanál, inicializuje poslucháča na udalosť **message** (na strane klienta) a poskytuje metódy ``addMessage`` a ``loadMessages``:
 
 ```ts
 import { RawMessage, SerializedMessage } from 'src/contracts'
@@ -1051,7 +1051,7 @@ Všimnime si v konzole, že dáta nám chodia v "Snake Case" konvencii, napr. ``
 
 Keď sa ale pozrieme na kontrakt ``User`` v ``src/contracts/Auth.ts`` používame "Camel Case" konvenciu. Potrebujeme na serveri zabezpečiť (AdonisJS:slek-server), aby sa serializácia modelov realizovala v "Camel Case" režime namiesto "Snake Case".
 
-**Prečo nám aplikácia funguje? Zatiaľ priamo nepoužívame na klientovi atribúty, ktoré nám chodia zo servera v "Snake Case" formáte.**
+**Prečo nám ale aplikácia funguje?** Kľúčové atribúty, napr. token, sú jednoslovné. Avšak všimnime si, že v komponente ``ChannelMessagesComponent``používame v slučke ``:stamp="message.createdAt"``. Časová pečiatka je v "Camel Case", avšak zo serveru nám chodí v "Snake Case" konvencii (``created_at``). Dôsledkom je, že sa časová pečiatka pri správach v používateľskom rozhraní nezobrazuje.
 
 Na vyriešenie tohto problému použijeme koncept preload (prld) súborov. Vytvorme v priečinku ``start`` preload súbor ``orm.ts`` ([prld súbory](https://docs.adonisjs.com/guides/adonisrc-file#preloads) a [viac o prld súboroch](https://dev.to/anthrogan/adonisjs-prldfiles-29bn)):
 ```ts

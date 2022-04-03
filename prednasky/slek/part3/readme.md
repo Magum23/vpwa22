@@ -1089,4 +1089,4 @@ Teraz môžeme vidieť, že nám dáta chodia správne, a teda v "Camel Case" ko
 
 HOTOVO.
 
-**Finálny zdrojový kód**
+**Finálny zdrojový kód**x

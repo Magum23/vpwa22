@@ -21,7 +21,8 @@
         * [Zdrojový kód po prvej časti](slek/slek-part1.zip)
     * [2. časť: vytvorenie autentifikačného aparátu na klientovi a server API](slek/part2/readme.md)
         * [Zdrojový kód po druhej časti](slek/slek-part2.zip)
-
+    * [3. časť: vytvorenie aparátu na posielanie správ cez websockety
+](slek/part3/readme.md)
 
 
 ### Materiály pre študentov, ktorí nemali WTECH

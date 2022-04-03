@@ -24,6 +24,7 @@
 * [Zaregistorvanie obsluhy pre kanály na strane servera](#anchor7-route)
 * [Test aplikácie - vymienanie správ](#anchor8-test)
 * [Snake Case vs Camel Case konvencia](#anchor9-conv)
+* [ActivityService a ActivityController](#anchor10-activity)
 
 ## <a name="anchor1-message"></a> Kontrakt Message
 Podobne ako sme v predošlej časti zadefinovali kontrakty pre autentifikačný aparát (``ApiToken``, ``RegisterData``, ``LoginCredentials``, ``User``), vytvorme v priečinku ``src/contracts`` kontrakt pre správy, a teda súbor ``Message.ts`` s týmto kódom:
@@ -1103,6 +1104,135 @@ Potrebujeme ešte prld súbor zaregistrovať. V súbore ``.adonisrc.json`` prida
 Teraz môžeme vidieť, že nám dáta chodia správne, a teda v "Camel Case" konvencii:
 
 ![Konzola komunikácia Slek app](zdroje/console-data-camel.png "Konzola komunikácia Slek app")
+
+
+## <a name="anchor10-activity"></a> ActivityService a ActivityController
+Ukážme si na záver príklad služby, ktorá môže obslúžiť tieto aktivity:
+* keď sa nejaký používateľ/klient sa prihlási, príp. odhlási, notifikujeme ostatných používateľov o danej aktivite
+* keď sa používateľ/klient pripojí, vrátime mu zoznam ostatných pripojených používateľov 
+
+Vytvorme na klientovi (slek-client) službu ``ActivityService.ts`` v priečinkku ``src/services``:
+```ts
+import { User } from 'src/contracts'
+import { authManager } from '.'
+import { SocketManager } from './SocketManager'
+
+class ActivitySocketManager extends SocketManager {
+  public subscribe (): void {
+    this.socket.on('user:list', (onlineUsers: User[]) => {
+      console.log('Online users list', onlineUsers)
+    })
+
+    this.socket.on('user:online', (user: User) => {
+      console.log('User is online', user)
+    })
+
+    this.socket.on('user:offline', (user: User) => {
+      console.log('User is offline', user)
+    })
+
+    authManager.onChange((token) => {
+      if (token) {
+        this.socket.connect()
+      } else {
+        this.socket.disconnect()
+      }
+    })
+  }
+}
+
+export default new ActivitySocketManager('/')
+```
+Všimnime si, že ``ActivitySocketManager`` sa inštanciuje pre socket namespace '/'.
+
+Pridajme službu ``ActivityService`` do súboru ``src/services/index.ts``:
+```ts
+export { default as authManager } from './AuthManager'
+export { default as authService } from './AuthService'
+export { default as channelService } from './ChannelService'
+export { default as activityService } from './ActivityService'
+```
+
+Na serveri (slek-server) vytvorme v ``app/Controllers/Ws/`` controller ``ActivityController.ts``:
+```ts
+import type { WsContextContract } from '@ioc:Ruby184/Socket.IO/WsContext'
+import User from 'App/Models/User'
+
+export default class ActivityController {
+  private getUserRoom(user: User): string {
+    return `user:${user.id}`
+  }
+
+  public async onConnected({ socket, auth, logger }: WsContextContract) {
+    // all connections for the same authenticated user will be in the room
+    const room = this.getUserRoom(auth.user!)
+    const userSockets = await socket.in(room).allSockets()
+
+    // this is first connection for given user
+    if (userSockets.size === 0) {
+      socket.broadcast.emit('user:online', auth.user)
+    }
+
+    // add this socket to user room
+    socket.join(room)
+    // add userId to data shared between Socket.IO servers
+    // https://socket.io/docs/v4/server-api/#namespacefetchsockets
+    socket.data.userId = auth.user!.id
+
+    const allSockets = await socket.nsp.except(room).fetchSockets()
+    const onlineIds = new Set<number>()
+
+    for (const remoteSocket of allSockets) {
+      onlineIds.add(remoteSocket.data.userId)
+    }
+
+    const onlineUsers = await User.findMany([...onlineIds])
+
+    socket.emit('user:list', onlineUsers)
+
+    logger.info('new websocket connection')
+  }
+
+  // see https://socket.io/get-started/private-messaging-part-2/#disconnection-handler
+  public async onDisconnected({ socket, auth, logger }: WsContextContract, reason: string) {
+    const room = this.getUserRoom(auth.user!)
+    const userSockets = await socket.in(room).allSockets()
+
+    // user is disconnected
+    if (userSockets.size === 0) {
+      // notify other users
+      socket.broadcast.emit('user:offline', auth.user)
+    }
+
+    logger.info('websocket disconnected', reason)
+  }
+}
+```
+``ActivityController`` má dve obslužné metódy ``onConnected`` a ``onDisconnected``. Vytváraním inštancie ``ActivitySocketManager`` na klientovi sa vytvára socket medzi klientom a serverom pre namespace '/'. Po úspešnom vytvorení spojenia sa emituje udalosť ``connected``. Do súboru ``start/socket.ts`` pridajme absluhu ``ActivityController.onConnected`` pre túto udalosť. Podobne  ``disconnected``:
+```ts
+import Ws from '@ioc:Ruby184/Socket.IO/Ws'
+
+Ws.namespace('/')
+  .connected('ActivityController.onConnected')
+  .disconnected('ActivityController.onDisconnected')
+
+// this is dynamic namespace, in controller methods we can use params.name
+Ws.namespace('channels/:name')
+  // .middleware('channel') // check if user can join given channel
+  .on('loadMessages', 'MessageController.loadMessages')
+  .on('addMessage', 'MessageController.addMessage')
+```
+
+Po úspešnom vytvorení socketového spojenia medzi klientom a serverom (inštancia ``ActivitySocketManager`` na klientovi) sa v metóde ``onConnected`` obslužného controllera ``ActivityController`` emitujú tieto udalosti:
+* ``user:online`` - keď sa vytvorí socketové spojenie medzi nejakým klientom a serverom, ostatní aktívni klienti sú informovaní o tomto novom spojení. Tu kontrolujeme, či ide o prvé spojenie používateľa. Napríklad, používateľ by si mohol otvoriť aplikáciu vo viacerých tabkách prehliadača. 
+* ``user:list`` - keď sa vytvorí socketové spojenie medzi klientom a serverom, danému klientovi je odoslaný zoznam ostatných aktívnych klientov (používateľov).
+
+Je potom na klientovi, čo spraví s danou informáciou. V našom prípade, na ilustráciu, vypisujeme iab do konzoly. 
+
+Emitovanie udalostí, možnosti:
+* ``socket.broadcast.emit`` - emituje udalosť všetkým klientom okrem odosielateľa
+* ``socket.emit`` - emituje udalosť odosielateľovi.
+* ``socket.nsp.emit`` - emituje udalosť všetkým klientom, vrátane odosielateľa
 
 HOTOVO.
 

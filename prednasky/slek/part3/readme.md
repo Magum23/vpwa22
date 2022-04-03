@@ -21,8 +21,9 @@
 * [Vytvorenie služieb na výmenu správ na serveri (slek-server)](#anchor6-server)]
     * [Kontajner MessageRepository](#anchor61-repository) 
     * [Kontrakty pre kontajner MessageRepository](#anchor62-contracts) 
-* [Test aplikácie - vymienanie správ](#anchor7-test)
-* [Snake Case vs Camel Case konvencia](#anchor8-conv)
+* [Zaregistorvanie obsluhy pre kanály na strane servera](#anchor7-route)
+* [Test aplikácie - vymienanie správ](#anchor8-test)
+* [Snake Case vs Camel Case konvencia](#anchor9-conv)
 
 ## <a name="anchor1-message"></a> Kontrakt Message
 Podobne ako sme v predošlej časti zadefinovali kontrakty pre autentifikačný aparát (``ApiToken``, ``RegisterData``, ``LoginCredentials``, ``User``), vytvorme v priečinku ``src/contracts`` kontrakt pre správy, a teda súbor ``Message.ts`` s týmto kódom:
@@ -54,7 +55,7 @@ export * from './Message'
 
 Vytvorme v priečinku ``src/layouts`` nový súbor s názvom ``ChatLayout.vue``:
 
-```vue
+```html
 <template>
   <div class="WAL position-relative bg-grey-4" :style="{ height: $q.screen.height + 'px' }">
     <q-layout view="lHh Lpr lFf" class="WAL__layout shadow-3" container>
@@ -152,7 +153,8 @@ Vytvorme v priečinku ``src/layouts`` nový súbor s názvom ``ChatLayout.vue``:
     </q-layout>
   </div>
 </template>
-
+```
+```ts
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { mapActions, mapGetters, mapMutations } from 'vuex'
@@ -190,7 +192,8 @@ export default defineComponent({
   }
 })
 </script>
-
+```
+```sass
 <style lang="sass">
 .WAL
   width: 100%
@@ -340,7 +343,7 @@ Na výmenu správ budeme používať websockety. Používame knižnicu [socket.i
 
 V serverovej časti našej aplikácie (AdonisJS:slek-server) sme si v prvej časti podporu vytvorili. Na klientovi si ju musíme vytvoriť.  
 
-Doništalujme balíček na podporu socketov na strane klienta:
+Doinštalujme balíček na podporu socketov na strane klienta:
 
 ```console
 npm install socket.io-client
@@ -525,7 +528,7 @@ export abstract class SocketManager implements SocketManagerContract {
 
 ### <a name="anchor32-channelservice"></a> Služby ChannelService a ChannelSocketManager
 
-Služba ``ChannelService`` nám bude vytvárať a udržiavať websocket pripojenia (metóda ``join``), resp. odpojenie z kanálu (metóda ``leave``). V metóde ``join`` vytvoríme inštanciu ``ChannelSocketManager``. Tento manager sa pripojí na ``socket.io`` namespace pre daný kanál, inicializuje poslucháča (na strane klienta) na udalosť **message** a definuje metódy ``addMessage`` a ``loadMessages``:
+Služba ``ChannelService`` nám bude vytvárať a udržiavať websocket pripojenia (metóda ``join``), resp. odpojenie z kanálu (metóda ``leave``). V metóde ``join`` vytvoríme inštanciu ``ChannelSocketManager``. Tento manažér sa pripojí na ``socket.io`` namespace pre daný kanál, inicializuje poslucháča na udalosť **message** (na strane klienta) a definuje metódy ``addMessage`` a ``loadMessages``:
 
 ```ts
 import { RawMessage, SerializedMessage } from 'src/contracts'
@@ -586,11 +589,10 @@ class ChannelService {
 export default new ChannelService()
 ```
 
-``ChannelService``združuje inštancie ``ChannelSocketManager`` (štruktúra ``Map``), pričom každá inštancia ``ChannelSocketManager`` predstavuje websocketové spojenie pre kanál jednotlivo. Všimnime si, že v metóde ``join`` služby ``ChanneService`` pri vytváraní inštancie ``ChannelSocketManager`` odovzdávame argument ``/channels/${name}``. Tým určujeme, že daný manažér slúži pre kanál s názvom ``name``:
+``ChannelService``združuje inštancie ``ChannelSocketManager`` (štruktúra ``Map``), pričom každá inštancia ``ChannelSocketManager`` predstavuje websocketové spojenie pre kanál jednotlivo. Všimnime si, že v metóde ``join`` služby ``ChanneService`` pri vytváraní inštancie ``ChannelSocketManager`` odovzdávame argument ``/channels/${name}``. Tým určujeme, že daný manažér slúži pre kanál s názvom ``name``. Inými slovami, každý kanál má svoj ``ChannelSocketManager``:
 ```ts
 const channel = new ChannelSocketManager(`/channels/${name}`)
 ```
-Inými slovami, každý kanál má svoj ``ChannelSocketManager``.
 
 Keď ``ChannelSocketManager`` obdrží cez socket zo serveru udalosť **message** , poslucháč odovzdá správu pre daný kanál storu. Ide o **store module** ``channel``, ktorý vytvoríme neskôr v tejto časti tutoriálu.  
 
@@ -651,7 +653,7 @@ quasar new store -f ts channels
 
 ### <a name="anchor41-state"></a> Store modul channel: state
 
-V priečinku src/store/module-channels zadefinujme ``state``` nového store modulu:
+V priečinku ``src/store/module-channels`` zadefinujme ``state`` nového store modulu:
 ```ts
 import { SerializedMessage } from 'src/contracts'
 
@@ -674,7 +676,7 @@ function state (): ChannelsStateInterface {
 export default state
 ```
 
-Zadefinujem nad storom **mutácie, akcie a gettre** a **upravme indexy**.
+Zadefinujme nad storom **mutácie, akcie a gettre** a **upravme indexy**.
 
 ### <a name="anchor42-mutations"></a> Store modul channel: mutácie
 
@@ -929,7 +931,7 @@ Metóda ``addMessage`` uloží správu do databázy a prešíri (broadcast) ju v
 
 Vidíme, že obidve metódy v controlleri ``MessageController`` používajú ``MessageRepository``. Našim cieľom je udržiavať biznis logiku controllerov čo najpriamočiarejšiu (aby neobsahovali dlhý špagetový kód). 
 
-Preto vytvoríme IoC kontajner ``MessageRepository`` ([viac o IoS kontajneroch v dokumentácii](https://legacy.adonisjs.com/docs/4.1/ioc-container)), v ktorom bude oddelená logika na zrelizovanie dopytov do DB a vytvorenie inštancie správy. 
+Preto vytvoríme IoC kontajner ``MessageRepository`` ([viac o IoS kontajneroch v dokumentácii](https://legacy.adonisjs.com/docs/4.1/ioc-container)), v ktorom bude oddelená logika na zrealizovanie dopytov do DB a vytvorenie inštancie správy. 
 
 Vytvorme v priečinku ``app`` priečinok ``Repositories`` a v ňom súbor ``MessageRepository.ts`` s týmto kódom:
 
@@ -1003,7 +1005,22 @@ public register() {
 }
 ```
 
-## <a name="anchor7-test"></a> Test aplikácie - vymienanie správ
+## <a name="anchor7-route"></a> Zaregistorvanie obsluhy pre kanály na strane servera
+
+Pri HTTP protokole definujeme smerovanie (routes) v súbore ``start/routes.ts``. V prípade websocketov definujeme obsluhu v súbore ``start/socket.ts``:
+```ts
+import Ws from '@ioc:Ruby184/Socket.IO/Ws'
+
+// this is dynamic namespace, in controller methods we can use params.name
+Ws.namespace('channels/:name')
+  // .middleware('channel') // check if user can join given channel
+  .on('loadMessages', 'MessageController.loadMessages')
+  .on('addMessage', 'MessageController.addMessage')
+```
+
+Vidíme, že udalosť ``loadMessages`` obslúži metóda ``loadMessages`` v ``MessageController``. Podobne udalosť ``addMessage``. Pripomeňme si, že na klientovi (slek-client) emituje udalosti ``loadMessages`` a ``addMessage`` ``ChannelSocketManager``.
+
+## <a name="anchor8-test"></a> Test aplikácie - vymienanie správ
 
 V tomto kroku by nám mala aplikácia fungovať. 
 
@@ -1026,7 +1043,7 @@ node ace serve --watch
 
 Hotovo, malo by fungovať vymienanie správ medzi používateľmi.
 
-## <a name="anchor8-conv"></a> Snake Case vs Camel Case konvencia
+## <a name="anchor9-conv"></a> Snake Case vs Camel Case konvencia
 
 Všimnime si v konzole, že dáta nám chodia v "Snake Case" konvencii, napr. ``created_at``, ``updated_at``:
 
@@ -1089,4 +1106,4 @@ Teraz môžeme vidieť, že nám dáta chodia správne, a teda v "Camel Case" ko
 
 HOTOVO.
 
-**Finálny zdrojový kód**x
+**Finálny zdrojový kód**

@@ -18,7 +18,7 @@
     * [Store modul channel: index](#anchor45-index) 
     * [Zaregistrovanie store modulu channel ](#anchor46-indexs)    
 * [Doplnenie akcií v store module auth](#anchor5-auths)    
-* [Vytvorenie služieb na výmenu správ na serveri (slek-server)](#anchor6-server)]
+* [Vytvorenie služieb na výmenu správ na serveri (slek-server)](#anchor6-server)
     * [Kontajner MessageRepository](#anchor61-repository) 
     * [Kontrakty pre kontajner MessageRepository](#anchor62-contracts) 
 * [Zaregistrovanie obsluhy pre kanály na strane servera](#anchor7-route)
@@ -1108,7 +1108,7 @@ Teraz môžeme vidieť, že nám dáta chodia správne, a teda v "Camel Case" ko
 
 ## <a name="anchor10-activity"></a> ActivityService a ActivityController
 Ukážme si na záver príklad služby, ktorá môže obslúžiť tieto aktivity:
-* keď sa nejaký používateľ/klient sa prihlási, príp. odhlási, notifikujeme ostatných používateľov o danej aktivite
+* keď sa nejaký používateľ/klient prihlási, príp. odhlási, notifikujeme ostatných používateľov o danej aktivite
 * keď sa používateľ/klient pripojí, vrátime mu zoznam ostatných pripojených používateľov 
 
 Vytvorme na klientovi (slek-client) službu ``ActivityService.ts`` v priečinkku ``src/services``:

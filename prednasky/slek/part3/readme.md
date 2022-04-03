@@ -21,7 +21,7 @@
 * [Vytvorenie služieb na výmenu správ na serveri (slek-server)](#anchor6-server)]
     * [Kontajner MessageRepository](#anchor61-repository) 
     * [Kontrakty pre kontajner MessageRepository](#anchor62-contracts) 
-* [Zaregistorvanie obsluhy pre kanály na strane servera](#anchor7-route)
+* [Zaregistrovanie obsluhy pre kanály na strane servera](#anchor7-route)
 * [Test aplikácie - vymienanie správ](#anchor8-test)
 * [Snake Case vs Camel Case konvencia](#anchor9-conv)
 * [ActivityService a ActivityController](#anchor10-activity)

@@ -1227,12 +1227,14 @@ Po úspešnom vytvorení socketového spojenia medzi klientom a serverom (inšta
 * ``user:online`` - keď sa vytvorí socketové spojenie medzi nejakým klientom a serverom, ostatní aktívni klienti sú informovaní o tomto novom spojení. Tu kontrolujeme, či ide o prvé spojenie používateľa. Napríklad, používateľ by si mohol otvoriť aplikáciu vo viacerých tabkách prehliadača. 
 * ``user:list`` - keď sa vytvorí socketové spojenie medzi klientom a serverom, danému klientovi je odoslaný zoznam ostatných aktívnych klientov (používateľov).
 
-Je potom na klientovi, čo spraví s danou informáciou. V našom prípade, na ilustráciu, vypisujeme iab do konzoly. 
+Je potom na klientovi, čo spraví s danou informáciou. V našom prípade, na ilustráciu, vypisujeme iba do konzoly. 
 
-Emitovanie udalostí, možnosti:
-* ``socket.broadcast.emit`` - emituje udalosť všetkým klientom okrem odosielateľa
+Emitovanie udalostí, príklady možností:
+* ``socket.broadcast.emit`` - emituje udalosť všetkým klientom, okrem odosielateľa
 * ``socket.emit`` - emituje udalosť odosielateľovi.
 * ``socket.nsp.emit`` - emituje udalosť všetkým klientom, vrátane odosielateľa
+* ``socket.to("roomID").emit`` - emituje udalosť konkrétnemu klientovi (roomID: user:${user.id}) alebo aj viacerým klientom v danej room, okrem odosielateľa.
+* ``socket.to("roomID").except("room2ID").emit`` - emituje udalosť klientom v roomID, okrem klientov v room2ID, a okrem odosielateľa.
 
 HOTOVO.
 

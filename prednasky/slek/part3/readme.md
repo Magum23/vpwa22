@@ -10,7 +10,7 @@
     * [Služba SocketManager](#anchor31-socketmanager) 
     * [Služby ChannelService a ChannelSocketManager](#anchor32-channelservice)
     * [Boot súbor pre SocketManager](#anchor33-boot)
-* [Store modul channels](#anchor4-store)]
+* [Store modul channels](#anchor4-store)
     * [Store modul channels: state](#anchor41-state) 
     * [Store modul channels: mutácie](#anchor42-mutations) 
     * [Store modul channels: akcie](#anchor43-actions) 

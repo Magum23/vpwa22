@@ -6,7 +6,7 @@
     * [ChatLayout](#anchor21-layout)  
     * [ChannelPage](#anchor22-channelpage)  
     * [ChannelMessagesComponent](#anchor23-channelcomponent) 
-* [Vytvorenie služieb na výmenu správ na klientovi (slek-client)](#anchor3-servicesc)]
+* [Vytvorenie služieb na výmenu správ na klientovi (slek-client)](#anchor3-servicesc)
     * [Služba SocketManager](#anchor31-socketmanager) 
     * [Služby ChannelService a ChannelSocketManager](#anchor32-channelservice)
     * [Boot súbor pre SocketManager](#anchor33-boot)

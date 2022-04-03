@@ -13,7 +13,7 @@
 ### <a name="anchor11-client"> Klient
 
 Vytvorme si nový Quasar projekt CLI príkazmi:
-```js
+```console
 npm i -g @quasar/cli
 npm init quasar
 ```
@@ -30,7 +30,7 @@ Vyberme možnosť **App with Quasar CLI**, priečinok projektu nastavme napríkl
 
 Vyskúšajme, či nový projekt funguje:
 
-```js
+```console
 cd slek-client
 quasar dev
 ```
@@ -41,7 +41,7 @@ Ak zbehne build bez zásadných chýb a demo aplikácia sa otvorí v prehliadač
 
 Vytvorme nový Adonis projekt CLI príkazom:
 
-```js
+```console
 npm init adonis-ts-app@latest slek-server
 ```
 
@@ -49,7 +49,7 @@ Vyberme projektovú štruktúru **api**. V sprievodcovi inštaláciou potvrďme 
 
 
 Vyskúšajme, spustiť server:
-```js
+```console
 cd slek-server
 node ace serve --watch
 ```
@@ -59,24 +59,26 @@ Ak zbehne build bez zásadných chýb a demo sa otvorí v prehliadači, máme ko
 ## <a name="anchor2-install"> Inštalácia a konfigurácia prerekvizít slek-server
 
 Do Adonis projektu doinštalujme balíček "Lucid". Ide o oficiálny SQL ORM (objektovo-relačný mapovač )pre Adonis. Budeme používať [SQLite databázu](https://www.sqlite.org/index.html), preto vyberme **driver SQLite**:
-```js
-npm i @adonisjs/lucid && node ace configure @adonisjs/lucid
+```console
+npm i @adonisjs/lucid
+node ace configure @adonisjs/lucid
 ```
 
 Nainštalujme samotný SQLite DBMS:  
-```js
-@vscode/sqlite3
+```console
+npm i @vscode/sqlite3
 ```
 
 Vytvorme v priečinku ``tmp/`` súbor ``db.sqlite3`` pre našu SQLite databázu:
-```js
+```console
 cd tmp && touch db.sqlite3
 ```
 
 Nainštalujme [@adonisjs/auth](https://docs.adonisjs.com/guides/auth/introduction) balíček na autentifikáciu používateľov:
 
-```js
-npm i @adonisjs/auth && node ace configure @adonisjs/auth
+```console
+npm i @adonisjs/auth 
+node ace configure @adonisjs/auth
 ```
 
 V sprievodcovi konfiguráciou auth balička vyberme tieto možnosti:
@@ -90,41 +92,41 @@ V sprievodcovi konfiguráciou auth balička vyberme tieto možnosti:
 
 Nainštalujme balíček [phc-argon2](https://www.npmjs.com/package/phc-argon2) na hashovanie hesiel používateľov v databáze:
 
-```js
+```console
 npm i phc-argon2
 ```
 
 Ďalej nainštalujme podporu pre websockety do nášho Adonis projektu. Vedľa HTTP protokolu budeme používat aj websockety. Ďakujem kolegovi Ľubovi Jeszemu za implementáciu tejto podpory - balíčka ``adonis-socket.io``. Bez tohto balíčka by sme mali o niečo staženú prácu.
 
-```js
+```console
 npm i @ruby184/adonis-socket.io && node ace configure @ruby184/adonis-socket.io
 ```
 
 Povoľme [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS). 
 V súbore ``config/cors.ts`` nájdime kľúč **enabled** a nastavme ho na hodnotu **true**:
-```js
+```ts
 ...
 enabled: true,
 ...
 ```
 Komunikácia cez HTTP protokol aj cez websockety bude podliehať autentifikácii.
 V súbore ``start/kernel.ts`` zaregistrujme pomenovaný middleware ``auth`` pre HTTP komunikáciu:
-```js
+```ts
 Server.middleware.registerNamed({
   auth: () => import('App/Middleware/Auth'),
 })
 ```
 
 V súbore ``start/wsKernel.ts`` zaregistrujme globálny ``Auth`` middleware pre socketovú komunikáciu:
-```js
+```ts
 Ws.middleware.register([() => import('App/Middleware/Auth')])
 ```
 Do súboru ``app/Middleware/Auth.ts`` pridajme funkciu ``wsHandle``, ktorá bude zabezpečovať, že websocketové požiadavky prejdu kontrolou na autentifikovaného používateľa (podobne ako funkcia ``handle`` pre HTTP požiadavky):
 
-```js
+```ts
 import type { WsContextContract } from '@ioc:Ruby184/Socket.IO/WsContext'
 ```
-```js
+```ts
  /**
    * Handle ws namespace connection
    */
@@ -146,7 +148,7 @@ import type { WsContextContract } from '@ioc:Ruby184/Socket.IO/WsContext'
 ## <a name="anchor3-db"> Databázové modely
 
 Vytvorme modely ``Channel`` a ``Message``. Medzi týmito modelmi bude vzťah **1:M** (kanál môže obsahovať viacero správ, správa je spojená s kanálom). Cez CLI príkazy vytvorme migračné súbory a modely ako také:
-```js
+```console
 node ace make:migration channels
 node ace make:model Channel
 node ace make:migration messages
@@ -156,7 +158,7 @@ node ace make:model Message
 V priečinku ``app/models`` nájdeme vytvorené modely ``Channel`` a ``Message`` a v priečinku ``database/migrations`` zodpovedajúce migračné súbory. 
 
 V modeli ``Channel`` pridajme stĺpec (atribút) **name** a zadefinujme vzťah **hasMany** na model ``Message``. Správa je prepojená s kanálom cez cudzí kľúč (foreign key) **channelId**:
-```js
+```ts
 import { DateTime } from 'luxon'
 import { BaseModel, column, HasMany, hasMany } from '@ioc:Adonis/Lucid/Orm'
 import Message from 'App/Models/Message'
@@ -183,7 +185,7 @@ export default class Channel extends BaseModel {
 
 V modeli ``Message`` pridajme stĺpce **createdBy**, **channelId** a **content**. Zadefinujme tiež vzťahy ``belongsTo``, teda cudzie kľúče pre ``createdBy`` (autor správy) a ``channelId`` (kanál, s ktorým je správa asociovaná):
 
-```js
+```ts
 import { DateTime } from 'luxon'
 import { BaseModel, BelongsTo, belongsTo, column } from '@ioc:Adonis/Lucid/Orm'
 import User from 'App/Models/User'
@@ -222,7 +224,7 @@ export default class Message extends BaseModel {
 
 Do migračného súboru pre ``Channel`` (``database/migrations/..._channels.ts``) pridajme v metóde ``up`` stĺpec **name**:
 
-```js
+```ts
 import BaseSchema from '@ioc:Adonis/Lucid/Schema'
 
 export default class Channels extends BaseSchema {
@@ -265,14 +267,14 @@ table.text('content')
 
 Medzi modelmi ``User`` a ``Channel`` bude vzťah **M:N**. Potrebujeme vytvoriť väzobnú tabuľku ``channel_users`` (angl. pivot table):
 
-```js
+```console
 node ace make:migration channel_user
 ```
 
 Poznámka: Adonis CLI príkaz vytvorí "channel_users", aj keď je na vstupe "channel_user".
 
 Do novovytvoreného migračného súboru (``database/migrations/..._channel_users.ts``) pridajme v metóde ``up`` cudzie kľúče na používateľa a kanál:
-```js
+```ts
 table
     .integer('user_id')
     .unsigned()
@@ -291,7 +293,7 @@ table.unique(['user_id', 'channel_id'])
 ```
 
 Zadefinujme v modeli ``User`` vzťah **hasMany** pre model ``Message``:
-```js
+```ts
 import {
   column,
   beforeSave,
@@ -305,7 +307,7 @@ import Channel from 'App/Models/Channel'
 import Message from 'App/Models/Message'
 ```
 
-```js
+```ts
 @hasMany(() => Message, {
   foreignKey: 'createdBy',
 })
@@ -314,7 +316,7 @@ public sentMessages: HasMany<typeof Message>
 
 a vzťah **manyToMany** pre model ``Channel``:
 
-```js
+```ts
 @manyToMany(() => Channel, {
   pivotTable: 'channel_users',
   pivotForeignKey: 'user_id',
@@ -327,12 +329,12 @@ public channels: ManyToMany<typeof Channel>
 Použijeme [seeder](https://docs.adonisjs.com/guides/database/seeders) na vytvorenie záznamu (inštanciu modelu Channel) v tabuľke channels. 
 
 Nový seeder vytvorme týmto CLI príkazom:
-```js
+```console
 node ace make:seeder Channel
 ```
 
 Otvorme v priečinku ``database/seeders`` súbor ``Channel.ts`` a do metódy **run** doplňme:
-```js
+```ts
 import BaseSeeder from '@ioc:Adonis/Lucid/Seeder'
 import Channel from 'App/Models/Channel'
 
@@ -351,11 +353,12 @@ export default class ChannelSeeder extends BaseSeeder {
 Seeder nám vytvorí kanál s názvom "general".
 
 **Na záver tejto časti spustime migráciu spolu so seederom:**
-```js
+```console
 node ace migration:refresh --seed
 ```
 
 Ak nemáte, odporúčam nainštalovať si prehliadač pre SQLite databázu, napríklad [DB Browser for SQLite](https://sqlitebrowser.org/dl/). Skontrolujte štruktúru a obsah databázy, či zodpovedá tomu, čo sme krok-za-krokom vytvorili. 
 
 Koniec prvej časti.
-[Zdrojový kód po prvej časti - slek-server](../slek-part1.zip)
+
+**[Zdrojový kód po prvej časti - slek-server](../slek-part1.zip)**

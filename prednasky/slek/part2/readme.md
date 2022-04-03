@@ -32,7 +32,7 @@ V Quasar appke (slek-client) vytvorme základné komponenty používateľského 
 
 V priečinku ``src/layouts`` otvorme súbor (komponent) ``MainLayout.vue`` a upravme jeho obsah takto:
 
-```js
+```vue
 <template>
   <q-layout view="lHh Lpr lFf">
     <q-header elevated>
@@ -63,7 +63,7 @@ export default defineComponent({
 
 V priečinku ``src/pages`` vytvorme súbor (komponent) ``RegisterPage.vue`` s týmto obsahom:
 
-```js
+```vue
 <template>
 <q-page class="row items-center justify-evenly">
   <q-card square style="width: 400px; padding:50px">
@@ -166,7 +166,7 @@ Komponent obsahuje formulár na registráciu používateľa, konkrétne vstupné
 
 Zadefinujme routovanie. V priečinku ``src/router`` otvorme súbor ``routes.ts`` a zadefinujme tieto cesty:
 
-```js
+```ts
   {
     path: '/',
     // try redirect to home route
@@ -196,7 +196,7 @@ Vidíme, že koreňovú cestu ``/`` presmerovávame na ``home`` route. Routa s n
 ### <a name="anchor14-login"></a> Komponent LoginPage
 
 V priečinku ``src/pages`` vytvorme súbor (komponent) ``LoginPage.vue`` s týmto obsahom:
-```js
+```vue
 <template>
 <q-page class="row items-center justify-evenly">
   <q-card square style="width: 400px; padding:50px">
@@ -287,7 +287,7 @@ Komponent obsahuje formulár na prihlásenie používateľa, konkrétne vstupné
 ### <a name="anchor15-channel"></a> Komponent ChannelPage
 
 V priečinku ``src/pages`` vytvorme súbor (komponent) ``ChannelPage.vue`` s týmto obsahom (neskôr ho nahradíme plnohodnotným obsahom):
-```js
+```vue
 <template>
 <q-page class="row items-center justify-evenly">
    channel page content coming soon
@@ -315,7 +315,7 @@ Vytvoríme dve služby, ktoré budú realizovať klúčové úlohy autentifikác
 
 Vytvorme v priečinku ``src`` priečinok ``services`` a v ňom súbor ``AuthManager.ts `` s týmto obsahom:
 
-```js
+```ts
 import { LocalStorage } from 'quasar'
 
 type ChangeListener = (newToken: string | null, oldToken: string | null) => void
@@ -404,7 +404,7 @@ export default new AuthManager('auth_token')
 Úlohou služby ``AuthService`` je poskytnúť metódy na komunikáciu s autentifikačným server API cez HTTP protokol. Ide o metódy ``register``, ``login``, ``logout`` a ``me`` (informácie o aktuálne prihlásenom používateľovi). Služba používa kontrakty ``ApiToken``, ``LoginCredentials``, ``RegisterData`` a ``User`` (definície kontraktov nižšie).
 
 Vytvorme v priečinku ``src/services`` súbor ``AuthService.ts`` s týmto obsahom:
-```js
+```ts
 import type { AxiosError, AxiosRequestConfig } from 'axios'
 import type { ApiToken, LoginCredentials, RegisterData, User } from 'src/contracts'
 import { api } from 'src/boot/axios'
@@ -450,7 +450,7 @@ Napríklad, metóda ``register`` vytvára HTTP požiadavku typu POST (HTTP netó
 Metódda ``login`` vytvára HTTP požiadavku typu POST na routu ``auth/login``. V požiadavke posielame informácie zo vstupných polí prihlasovacieho formulára. Na serveri požiadavku obslúži rovnomenná metóda ``login`` controllera ``AuthController``. Ak je prihlásenie úspešné, odpoveďou je ``ApiToken``. Pri ďalších požiadavkách bude klient posielať (v hlavičke požiadavky) pridelený API token a server overí (napr. ``auth`` middleware) jeho platnosť.
 
 V priečinku ``src/services`` vytvorme súbor ``index.ts``, ktorého obsah je takýto:
-```js
+```ts
 export { default as authManager } from './AuthManager'
 export { default as authService } from './AuthService'
 ```
@@ -459,7 +459,7 @@ export { default as authService } from './AuthService'
 
 Na klientovi používane viacero kontraktov (rozhraní). Spomenuli sme už napr. kontrakty ``User``,``RegisterData`` a ``ApiToken``. Vytvorme priečinok ``src/contracts`` a v ňom súbor ``Auth.ts`` s týmito kontraktmi:
 
-```js
+```ts
 export interface ApiToken {
   type: 'bearer'
   token: string
@@ -488,10 +488,9 @@ export interface User {
 ```
 
 Vytvorme tiež v priečinku ``src/contracts`` súbor ``index.ts`` s týmto obsahom:
-```js
+```ts
 export * from './Auth'
 ```
-
 
 ### <a name="anchor23-boot"></a> Boot súbory axios a auth
 
@@ -500,7 +499,7 @@ Boot súbory vytvárame v priečinku ``src/boot``.
 
 Môžeme vidieť, že sa v priečinku ``src/boot`` nachádza súbor ``axios.ts``. Boot súbor ``axios.ts`` vytvára inštanciu a sprístupňuje nám Axios API v našej Quasar aplikácii. Boot súbory je potrebné zaregistrovať v konfiguračnom súbore ``quasar.config.js``. 
 
-```js
+```ts
 boot: [
   'axios'
 ],
@@ -509,7 +508,7 @@ boot: [
 #### <a name="anchor231-bootaxios"></a> Boot súbor axios
 
 Upravme súbor ``src/boot/axios.ts`` takto:
-```js
+```ts
 import { boot } from 'quasar/wrappers'
 import axios, { AxiosInstance } from 'axios'
 import { authManager } from 'src/services'
@@ -598,12 +597,12 @@ Boot **súbor Axiosu sme upravili** tak, aby klient v hlavičke každej požiada
 Boot aparát použijeme aj na prepojenie autentifikačného aparátu so smerovaním (routes) na strane klienta . 
 
 Vytvorme boot súbor ``auth`` cez Qusar CLI:
-```js
+```console
 quasar new boot auth --format ts
 ```
 
 V priečinku ``src/boot`` pribudne súbor ``auth.ts``. Zaregistrujme ho v konfiguračnom súbore ``quasar.config.js``:
-```js
+```ts
 boot: [
   'axios',
   'auth'
@@ -611,7 +610,7 @@ boot: [
 ```
 
 Otvorme boot súbor ``auth.ts``a upravme jeho obsah takto:
-```js
+```ts
 import { boot } from 'quasar/wrappers'
 import { authManager } from 'src/services'
 import { RouteLocationNormalized, RouteLocationRaw } from 'vue-router'
@@ -668,7 +667,7 @@ V boot súbore ``auth`` používame akciu storu ``store.dispatch('auth/check')``
 V komponente ``src/Pages/RegisterPage.vue`` používame v metóde ``onSubmit`` akciu ``this.$store.dispatch('auth/register')``. Úlohou akcie ``auth/register`` je zaregistrovať používateľa volaním služby ``authService.register(form)``.
 
 V priečinku ``src/store`` premenujme priečinok ``module-example`` na ``module-auth``. V súbore ``src/store/index.ts`` zaregistrujme store module ``auth``:
-```js
+```ts
 import auth from './module-auth'
 import type { AuthStateInterface } from './module-auth/state'
 ...
@@ -686,7 +685,7 @@ const Store = createStore<StateInterface>({
 #### <a name="anchor241-state"></a> Store module auth: state
  
 Upravme obsah súboru ``module-auth/state.ts`` takto:
-```js
+```ts
 import { User } from 'src/contracts'
 
 export interface AuthStateInterface {
@@ -711,7 +710,7 @@ export default state
 #### <a name="anchor242-mut"></a> Store module auth: mutácie 
 
 V store module ``auth`` zadefinujme mutácie, a teda upravme súbor ``mutations.ts`` takto:
-```js
+```ts
 import { User } from 'src/contracts'
 import { MutationTree } from 'vuex'
 import { AuthStateInterface } from './state'
@@ -737,7 +736,7 @@ export default mutation
 #### <a name="anchor243-get"></a> Store module auth: gettre 
 
 Súbor ``getters.ts`` upravme takto:
-```js
+```ts
 import { GetterTree } from 'vuex'
 import { StateInterface } from '../index'
 import { AuthStateInterface } from './state'
@@ -754,7 +753,7 @@ export default getters
 #### <a name="anchor244-act"></a> Store module auth: akcie 
 
 Súbor ``actions.ts`` upravme takto:
-```js
+```ts
 import { ActionTree } from 'vuex'
 import { StateInterface } from '../index'
 import { AuthStateInterface } from './state'
@@ -850,13 +849,13 @@ build: {
 ## <a name="anchor31-creates"></a> Vytvorenie aparátu na autentifikáciu používateľa na serveri (slek-server)
 
 Vytvorme ``AuthController``. V Adonis projekte (slek-server) vytvorme v priečinku ``app/Controllers/Http`` súbor ``AuthController.ts`` cez CLI:
-```js
+```console
 node ace make:controller Auth
 ```
 
 Do ``AuthController`` pridajme tento kód:
 
-```js
+```ts
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Channel from 'App/Models/Channel'
 import User from 'App/Models/User'
@@ -897,12 +896,12 @@ V metóde ``register`` validujeme vstupné polia z registračného formulára, v
 V metóde ``login`` sa overuje používateľ (či je používateľ identifikovaný emailom v DB a či sa heslá zhodujú). Ak je overenie úspešné, vráti sa klientovi API token. Pri každej ďalšej požiadavke bude klient posielať pridelený API token a server overí (napr. ``auth`` middleware) jeho platnosť (token môže byť invalidovaný, alebo po čase exspiruje).  
 
 Vidíme, že v controlleri používame ``RegisterUserValidator``. Vytvorme ho cez CLI:
-```js
+```console
 node ace make:validator RegisterUser
  ```
 
 V priečinku ``app/Validators`` vznikol súbor ``RegisterUserValidator.ts``, ktorého obsah upravme takto:
-```js
+```ts
 import { schema, rules } from '@ioc:Adonis/Core/Validator'
 ...
   public schema = schema.create({
@@ -933,4 +932,5 @@ Každú požiadavku cez metódu POST HTTP protokolu smerovanú na ``/auth/regist
 Týmto máme vytvorenú ukážku autentifikačného aparátu ako na klientovi, tak aj na serveri. Pre autentifikáciu sme použili HTTP protokol. Nabudúce pokračujeme vytvorením aparátu pre kanály a výmenu správ. Pre túto časť aplikácie nebudeme používať HTTP protokol, ale websockety.
 
 Koniec druhej časti.
-[Zdrojový kód po druhej časti - slek-server a sleck-client](../slek-part2.zip)
+ 
+**[Zdrojový kód po druhej časti - slek-server a sleck-client](../slek-part2.zip)**

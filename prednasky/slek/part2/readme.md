@@ -445,7 +445,7 @@ export default new AuthService()
 
 Metódy služby vytvárajú požiadavky na rovnomenné API routes na serveri. Na vytváranie asynchrónnych HTTP požiadaviek používame knižnicu [Axios](https://github.com/axios/axios).
 
-Napríklad, metóda ``register`` vytvára HTTP požiadavku typu POST (HTTP netóda POST) smerovanú na routu (endpoint) ``auth/register``, resp. ``http://localhost:3333/auth/register``. V požiadavke posielame informácie zo vstupných polí registračného formulára (``RegisterData``). Na serveri požiadavku obslúži rovnomenná metóda ``register`` controllera ``AuthController`` (``AuthController``, je podrobnejšie opísaný neskôr). Ak je registrácia úspešná, odpoveďou je zaregistrovaný používateľ, a teda objekt typu ``User``. 
+Napríklad, metóda ``register`` vytvára HTTP požiadavku typu POST (HTTP metóda POST) smerovanú na routu (endpoint) ``auth/register``, resp. ``http://localhost:3333/auth/register``. V požiadavke posielame informácie zo vstupných polí registračného formulára (``RegisterData``). Na serveri požiadavku obslúži rovnomenná metóda ``register`` controllera ``AuthController`` (``AuthController``, je podrobnejšie opísaný neskôr). Ak je registrácia úspešná, odpoveďou je zaregistrovaný používateľ, a teda objekt typu ``User``. 
 
 Metódda ``login`` vytvára HTTP požiadavku typu POST na routu ``auth/login``. V požiadavke posielame informácie zo vstupných polí prihlasovacieho formulára. Na serveri požiadavku obslúži rovnomenná metóda ``login`` controllera ``AuthController``. Ak je prihlásenie úspešné, odpoveďou je ``ApiToken``. Pri ďalších požiadavkách bude klient posielať (v hlavičke požiadavky) pridelený API token a server overí (napr. ``auth`` middleware) jeho platnosť.
 

@@ -1050,9 +1050,9 @@ Všimnime si v konzole, že dáta nám chodia v "Snake Case" konvencii, napr. ``
 
 ![Konzola komunikácia Slek app](zdroje/console-data-snake.png "Konzola komunikácia Slek app")
 
-Keď sa ale pozrieme na kontrakt ``User`` v ``src/contracts/Auth.ts`` používame "Camel Case" konvenciu. Potrebujeme na serveri zabezpečiť (AdonisJS:slek-server), aby sa serializácia modelov realizovala v "Camel Case" režime namiesto "Snake Case".
+Keď sa ale pozrieme na kontrakt ``User`` v ``src/contracts/Auth.ts`` používame "Camel Case" konvenciu (napr. ``createdAt``). Potrebujeme na serveri zabezpečiť (AdonisJS:slek-server), aby sa serializácia modelov realizovala v "Camel Case" režime namiesto "Snake Case".
 
-**Prečo nám ale aplikácia funguje?** Kľúčové atribúty, napr. token, sú jednoslovné. Avšak všimnime si, že v komponente ``ChannelMessagesComponent``používame v slučke ``:stamp="message.createdAt"``. Časová pečiatka je v "Camel Case", avšak zo serveru nám chodí v "Snake Case" konvencii (``created_at``). Dôsledkom je, že sa časová pečiatka pri správach v používateľskom rozhraní nezobrazuje.
+**Prečo nám ale aplikácia funguje?** Kľúčové atribúty, napr. token, sú jednoslovné. Všimnime si, že v komponente ``ChannelMessagesComponent``používame v slučke ``:stamp="message.createdAt"``. Časová pečiatka je v "Camel Case", avšak zo serveru nám chodí v "Snake Case" konvencii (``created_at``). Dôsledkom je, že sa časová pečiatka pri správach v používateľskom rozhraní nezobrazuje.
 
 Na vyriešenie tohto problému použijeme koncept preload (prld) súborov. Vytvorme v priečinku ``start`` preload súbor ``orm.ts`` ([prld súbory](https://docs.adonisjs.com/guides/adonisrc-file#preloads) a [viac o prld súboroch](https://dev.to/anthrogan/adonisjs-prldfiles-29bn)):
 ```ts

@@ -23,8 +23,7 @@
         * [Zdrojový kód po druhej časti](slek/slek-part2.zip)
     * [3. časť: vytvorenie aparátu na posielanie správ cez websockety](slek/part3/readme.md)
         * [Finálny zdrojový kód](slek/slek-final.zip)
-](slek/part3/readme.md)ß
-
+        
 
 ### Materiály pre študentov, ktorí nemali WTECH
 

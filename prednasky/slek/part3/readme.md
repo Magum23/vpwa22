@@ -1238,4 +1238,4 @@ Emitovanie udalostí, príklady možností:
 
 HOTOVO.
 
-**Finálny zdrojový kód**
+**[Finálny zdrojový kód]((../slek-final.zip))**

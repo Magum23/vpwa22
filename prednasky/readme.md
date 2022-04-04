@@ -22,6 +22,7 @@
     * [2. časť: vytvorenie autentifikačného aparátu na klientovi a server API](slek/part2/readme.md)
         * [Zdrojový kód po druhej časti](slek/slek-part2.zip)
     * [3. časť: vytvorenie aparátu na posielanie správ cez websockety
+        * [Finálny zdrojový kód](slek/slek-final.zip)
 ](slek/part3/readme.md)
 
 

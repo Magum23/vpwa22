@@ -26,7 +26,7 @@
 * [Snake Case vs Camel Case konvencia](#anchor9-conv)
 * [ActivityService a ActivityController](#anchor10-activity)
 
-## <a name="#anchor1-message"></a> Kontrakt Message
+## <a name="anchor1-message"></a> Kontrakt Message
 Podobne ako sme v predošlej časti zadefinovali kontrakty pre autentifikačný aparát (``ApiToken``, ``RegisterData``, ``LoginCredentials``, ``User``), vytvorme v priečinku ``src/contracts`` kontrakt pre správy, a teda súbor ``Message.ts`` s týmto kódom:
 ```ts
 import { User } from './Auth'

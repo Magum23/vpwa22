@@ -1019,7 +1019,7 @@ Ws.namespace('channels/:name')
   .on('addMessage', 'MessageController.addMessage')
 ```
 
-Vidíme, že udalosť ``loadMessages`` obslúži metóda ``loadMessages`` v ``MessageController``. Podobne udalosť ``addMessage``. Pripomeňme si, že na klientovi (slek-client) emituje udalosti ``loadMessages`` a ``addMessage`` ``ChannelSocketManager``.
+Vidíme, že udalosť ``loadMessages`` obslúži metóda ``loadMessages`` v ``MessageController``. Podobne udalosť ``addMessage``. Pripomeňme si, že na klientovi (slek-client) ``ChannelSocketManager`` emituje udalosti ``loadMessages`` a ``addMessage``.
 
 ## <a name="anchor8-test"></a> Test aplikácie - vymienanie správ
 

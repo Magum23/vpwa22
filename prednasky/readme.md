@@ -10,7 +10,7 @@
     * [Úvod](zdroje/3p-ts-01-intro.pdf), [TypeScript Quasar projekt z prednášky](zdroje/3p-quasar.zip)  
     * [Základné typy](zdroje/3p-ts-02-basic-types.pdf)  
     * [Funkcie, podmienky](zdroje/3p-ts-03-functions-conditions.pdf)  
-    * [Triedy a rohrania](zdroje/4p-ts-04-classes-interfaces.pdf)
+    * [Triedy a rozhrania](zdroje/4p-ts-04-classes-interfaces.pdf)
     * [Operátory typov, genericita](zdroje/4p-ts-05-type-operators-generics.pdf)
     * [Moduly](zdroje/4p-ts-06-moduls.pdf)
 

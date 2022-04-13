@@ -14,7 +14,7 @@
     * [Operátory typov, genericita](zdroje/4p-ts-05-type-operators-generics.pdf)
     * [Moduly](zdroje/4p-ts-06-moduls.pdf)
 
-4. [Backend: AdonisJS, Node.js, základné koncepty: routing, HTTP Context, controller, middleware, database (query builder, raw query, ORM), auth, HTTP vs websocket](zdroje/05-be-adonisjs.pdf)
+4. [Backend: AdonisJS, Node.js, základné koncepty: routing, HTTP Context, controller, middleware, database (query builder, raw query, ORM), auth, HTTP vs websocket](zdroje/5p-be-adonisjs.pdf)
 
 5. Hands-on Slek Lite aplikácia:
     * [1. časť: vytvorenie projektov, nainštalovanie prerekvizít a vytvorenie databázových modelov](slek/part1/readme.md)
@@ -23,6 +23,9 @@
         * [Zdrojový kód po druhej časti](slek/slek-part2.zip)
     * [3. časť: vytvorenie aparátu na posielanie správ cez websockety](slek/part3/readme.md)
         * [Finálny zdrojový kód](slek/slek-final.zip)
+
+6. DevOps (nasadzovanie v prostredí cloud):
+    * [DevOps, 1. časť: Mikroslužby, HW architektúry, virtualizácia a virtuálne stroje, kontajnerizované aplikácie (Docker)](zdroje/6p-devops-01-mikrosluzby-virtualizacia-docker.pdf)
         
 
 ### Materiály pre študentov, ktorí nemali WTECH

@@ -15,3 +15,4 @@ aktuálnych štandardov, princípov a technológií s tým súvisiacich. Po abso
 ## Oznamy
 1. Všetci študenti, ktorí nemali predmet Základy webových technologií (ZWTECH) nemusia realizovať v projekte prípady použitia číslo: 6, 8 a 11. Bodové hodnotenie zostáva zachované.
 2. Kontrolný bod sa presúva na cvičenia v týždni 25.4. a 27.4. **Študenti, ktorí nemali ZWETCH, musia mať v kontrolom bode 5 prípadov použitia (z 8). Ostatní študenti 7 prípadov použitia (z 11).**
+3. Skúška je plánovaná na 2.6., druhý beh, miestnosť ACPU. Opravný termín je plánovaný 20.6., tretí beh, miestnosť ACPU.

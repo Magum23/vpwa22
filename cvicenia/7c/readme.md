@@ -1,3 +1,5 @@
+# DevOps 1. časť
+
 #### Ciele cvičenia:
 - Precvičiť si praktickú prácu s platformou Docker.
 - Využiť Docker na kontajnerizáciu (tzv. "dockerizáciu") vlastnej PWA na báze AdonisJS (BE) + QuasarJS (FE).

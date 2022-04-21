@@ -7,3 +7,6 @@
 4. [State management Store/Vuex](./4c/)
 5. [Quasar: Použitie storu (Vuex) s TypesSriptom, Quasar: Validácia vstupných polí](./5c/)
 6. [Quasar: i18n - internacionalizácia, resp. viacjazyčná aplikácia](./6c/)
+7. [DevOps 1. časť](./7c/)
+    * [Docker Cheat Sheet](7c/zdroje/docker-cheat-sheet.md)
+    * [Slajdy DevOps 1. časť](7c/zdroje/vpwa-cvicenie-devops-1-cast-docker.pdf)

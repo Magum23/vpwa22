@@ -26,7 +26,7 @@
 
 6. DevOps (nasadzovanie v prostredí cloud):
     * [DevOps, 1. časť: Mikroslužby, HW architektúry, virtualizácia a virtuálne stroje, kontajnerizované aplikácie (Docker)](zdroje/6p-devops-01-mikrosluzby-virtualizacia-docker.pdf)
-        
+    * [DevOps, 2. časť: Cloud computing, orchestrácia kontajnerov, AWS, stratégie nasadzovania a best practices](zdroje/6p-devops-02-cloud-orchestracia-aws.pdf)
 
 ### Materiály pre študentov, ktorí nemali WTECH
 

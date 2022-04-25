@@ -5,7 +5,7 @@ Usage:
 
 Example:
 ```
-docker build -f my-dockerfile —build-arg API_HOST=https://api.myapp.dev/ —tag=myapp .
+docker build -f my-dockerfile --build-arg API_URL=http://localhost:3333 --tag=myapp .
 ```
 -f : Dockerfile to build
 
@@ -22,7 +22,7 @@ Usage:
 
 Example:
 ```
-docker run —rm -d -p 8085:8080 -e HOST=0.0.0.0 -v my-volume:/myapp/data --name=myapp myapp:latest
+docker run --rm -d -p 8085:8080 -e HOST=0.0.0.0 -v my-volume:/slek-server/build/db.sqlite3 --name=myapp myapp:latest
 ```
 --rm : Delete container upon container exit / Daemon termination.
 

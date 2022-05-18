@@ -1,3 +1,5 @@
+# DevOps 3. časť
+
 #### Ciele cvičenia
 - Oboznámiť sa s nasadzovaním kontajnerizovanej aplikácie na platforme AWS - pokračovanie
   - AWS RDS (manažovaná relačná DB Postgresql)

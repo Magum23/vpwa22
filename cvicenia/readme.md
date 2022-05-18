@@ -10,4 +10,7 @@
 7. [DevOps 1. časť](./7c/)
     * [Docker Cheat Sheet](7c/zdroje/docker-cheat-sheet.md)
     * [Slajdy DevOps 1. časť](7c/zdroje/vpwa-cvicenie-devops-1-cast-docker.pdf)
-    * [Slajdy DevOps 2. časť - AWS, nasadenie v cloude](8c/zdroje/vpwa-cvicenie-devops-2-cast-aws-nasadenie-v-cloude.pdf)
+8. [DevOps 2. časť - AWS, nasadenie v cloude](8c/)
+    * [Slajdy DevOps 2. časť](8c/zdroje/vpwa-cvicenie-devops-2-cast-aws-nasadenie-v-cloude.pdf)
+9. [DevOps 3. časť - Nasadenie v cloude 2 (CDN, S3, RDS, Azure)](9c/)
+    * [Slajdy DevOps 3. časť](9c/zdroje/vpwa_cvicenie_devops_AWS_CDN_RDS_Azure_cast3.pdf)

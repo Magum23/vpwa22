@@ -29,6 +29,11 @@
     * [DevOps, 2. časť: Cloud computing, orchestrácia kontajnerov, AWS, stratégie nasadzovania a best practices](zdroje/6p-devops-02-cloud-orchestracia-aws.pdf)
     * [DevOps, 3. časť: Dostupnosť služby, CDN, zálohy, CI/CD, testovanie aplikácií (TDD), bezpečnosť](zdroje/6p-devops-03-dostupnost-CDN-CICD-TDD-bezpecnost.pdf)
 
+7. [SSR, SSG, Hydration, PWA](zdroje/7p-pwa-ssr.pdf)
+    * [Example Vue SSR](zdroje/example-vue-ssr.js)
+    * [Example Vue SSR Express Framework](zdroje/server-express.js)
+    * [Hydration Client](zdroje/hydration/client-hydration.js), [Hydration Server](zdroje/hydration/server-hydration.js.js), [Hydration Universal Code](zdroje/hydration/app-hydration.js) 
+
 ### Materiály pre študentov, ktorí nemali WTECH
 
 1. [Úvod (WWW, HTTP, URL, webový server, statický/dynamický obsah, DOM), HTML5 - rozdeľujúce elementy](zdroje/wtech/01-WT-uvod-html.pdf)

@@ -1,3 +1,5 @@
+# DevOps 2. časť
+
 #### Ciele cvičenia
 - Oboznámiť sa s nasadzovaním kontajnerizovanej aplikácie na platforme AWS
   - AWS ECS (orchestrácia) + AWS EC2 (server)
